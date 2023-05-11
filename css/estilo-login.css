@@ -42,7 +42,10 @@ display: flex;
    
 }
 
-
+.left-formulario form p{
+    font-size: 20px;
+    margin: 0;
+}
 
 /*llenado de datos del usuario*/
 .form{
@@ -71,6 +74,7 @@ display: flex;
     font-weight: bold;
     font-size: 65px;
     color: white; 
+   
 }
 
 .fit{

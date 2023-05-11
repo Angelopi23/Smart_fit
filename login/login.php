@@ -22,7 +22,7 @@
         <a  class="fit"> FIT</a>
         </div>  
 
-        <h2>Inicia sesion para <a>empezar</a> </h2> 
+        <h2>Inicia sesion para <a>empezar</a> </h2> <br>
      <p>¡Bienvenido de nuevo!</p>
      <p>Por favor introduce tus datos para ingresar</p>
 
