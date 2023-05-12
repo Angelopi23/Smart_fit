@@ -40,7 +40,7 @@
         <input class="boton" type="submit" value="Registrate">
         </div>  
         
-        <p class="yatienes"><a href="">¿Ya tienes cuenta?</a></p>
+        <p class="yatienes"><a href="/login/login.php">¿Ya tienes cuenta?</a></p>
 
        
 
