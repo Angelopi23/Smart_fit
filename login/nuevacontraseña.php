@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
     
-    <link rel="stylesheet" href="/css/estilo-login.css">
-    <title>login</title>
+    <link rel="stylesheet" href="/css/nueva-contra.css">
+    <title>Nueva contraseña</title>
 </head>
 <body>
     
@@ -22,24 +22,22 @@
         <a  class="fit"> FIT</a>
         </div>  
 
-        <h2>Inicia sesion para <a>empezar</a> </h2> <br>
+        <h2>Ingresa tu nueva contraseña <a>para empezar</a> </h2> <br>
      <p>¡Bienvenido de nuevo!</p>
      <p>Por favor introduce tus datos para ingresar</p>
 
 
-     <label for="usuario">USUARIO</label>
-     <input class="form" type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" required="" >
-    
-     <label for="password">CONTRASEÑA</label>
-     <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" required=""> <br>
-
+     <label for="password">NUEVA CONTRASEÑA</label>
+     <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su nueva contraseña" required=""> <br>
+     <label for="password">CONFIRMAR CONTRASEÑA</label>
+     <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Confirme su contraseña" required=""> <br>
 
       <div class="botones">
-     <input class="boton1" type="submit" value="Ingresar">
-     <input class="boton2" type="submit" value="Registrar" id="registrar">
+     <input class="boton1" type="submit" value="Confirmar">
+     
      </div>  
 
-     <p class="olvidaste"><a href="/login/olvidarcontraseña.php">¿Olvidaste tu contraseña?</a></p>
+     
 
      </form>
 

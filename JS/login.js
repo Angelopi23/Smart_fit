@@ -3,3 +3,5 @@ document.getElementById("registrar").onclick = function() {
     location.href = "registro.php";
   };
 
+
+
