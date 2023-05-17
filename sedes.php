@@ -28,7 +28,7 @@
         <nav class="menuarriba">
         <ul>
             <li><a class="sede" href="">SEDES</a></li>
-            <li><a class="zona" href="">ZONAS DE ENTRENAMIENTO</a></li>
+            <li><a class="zona" href="/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="reservar" href="">RESERVAR</a></li>
             <li><a class="carrito" href="">CARRITO</a></li>
           <li><a class="empieza" href="/login/login.php">EMPIEZA HOY</a></li>

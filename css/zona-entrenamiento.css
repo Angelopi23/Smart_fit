@@ -106,26 +106,14 @@ color: #fcb823;
     display: none;
 }
 
-/*edicion de la img derecha*/
-.imgderecha{
-    display: flex;
-   
-    padding: 10px;
-   padding-top: 200px;
-}
-
-.imgderecha img{
-    width: 300px;
-    height: 600px;
-}
-
 
                                                     /*edicion del menu buscador*/
 .palabra h2{
     color: white;
     font-size: 30px;
     font-family: sans-serif;
-    transform: translate(22%, -5%);
+    padding: 0 0 0 22%;
+   /* transform: translate(22%, -5%); */  /*CORREGIR ESTE ERROR*/
 }
 
 .palabra h2 a{
@@ -175,20 +163,28 @@ color: #fcb823;
 
 
                                                                 /*centro*/
-
-.centro{
- display: grid;
-  grid-template-columns: 75% 25%; /* Divide la pantalla en dos columnas */
-  grid-gap: 20px;
+.palabra2 h2{
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    padding: 20px 0 10px 30px;
 }
 
+.palabra2 h2 a{
+    color: #fcb823
+}
 
 .img-contenedor{
-    display: grid;  
-    grid-template-columns: repeat(2,1fr);
-    grid-auto-rows:minmax( 478px, auto );
-    padding: 10px;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+   width: 100%;
+   
+}
+
+.img-contenedor img{
+   width: 100%;
+    height: 100%;
+  
 }
 
 /*cuando el mouse se posiciona en la img*/
@@ -196,12 +192,6 @@ color: #fcb823;
     filter: opacity(0.9);
     transform: scale(1.04);
     }
-    
-.img-contenedor img{
-    width: 100%;
-    height: 100%;
-}
-
 
 
                                                     /*footer*/
@@ -218,18 +208,8 @@ color: #fcb823;
 
                                             /*Editando Responsive*/
 
-@media(max-width: 1500px){
-    .img-contenedor{
-       
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-        grid-auto-rows: minmax( 478px, auto );
-    justify-content: center;
-    justify-items: center;
-        
-       
-    }
-  
-}
+
+
 
 @media(max-width:750px){
 
@@ -261,20 +241,13 @@ color: #fcb823;
         display: initial;
     }
       
-}
+    .img-contenedor{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+       width: 100%;
+       
+    }
 
-@media(max-width: 730px){
-  .imgderecha{
-    display: none;
-  }
-
-.centro{
-     grid-template-columns: 100% 0; /* Divide la pantalla en dos columnas */
-   }
-
-.img-contenedor img{
-    max-width: 500px;
-}
 
 }
 
