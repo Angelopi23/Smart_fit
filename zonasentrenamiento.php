@@ -64,25 +64,11 @@
    </div>
 
 
-
-
-
-
-
-
-
-
 <footer class="ultimo">
 
     <h2><a> ¡Saca tu </a> mejor forma!</h2>
 
 </footer>
-
-
-
-
-
-
 
 </body>
 </html>
