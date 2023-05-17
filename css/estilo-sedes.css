@@ -13,7 +13,7 @@ body{/*fondo*/
 }
 
 
-                                    /*Parte del HEADER*/
+                                                /*Parte del HEADER*/
 /*parte superior*/
 .container{
     max-width: 1300px;
@@ -106,9 +106,6 @@ color: #fcb823;
     display: none;
 }
 
-
-
-
 /*edicion de la img derecha*/
 .imgderecha{
     display: flex;
@@ -123,11 +120,61 @@ color: #fcb823;
 }
 
 
-/*edicion del menu buscador*/
+                                                    /*edicion del menu buscador*/
+.palabra h2{
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    transform: translate(22%, -5%);
+}
+
+.palabra h2 a{
+    color: #fcb823
+}
+
+.buscador1{
+    background: white;
+    color: black;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius:20px 0 0 20px ;
+    border: 1px solid ;
+    height: 100%;
+    width: 50%;
+   padding: 10px 0;
+  
+}
 
 
+.buscar-contenedor{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
 
-/*centro*/
+.btn{
+    background: gray;
+    border-radius: 0 20px 20px 0;
+    padding: 0;
+    margin: 0;
+    width: 100px;
+}
+
+.btn img{
+    width: 50%;
+}
+
+/*efecto del boton */
+.buscar-contenedor .btn:active{
+    transform: scale(0.9);
+}
+.btn:hover{
+    cursor: pointer;
+}
+
+
+                                                                /*centro*/
 
 .centro{
  display: grid;
@@ -154,7 +201,7 @@ color: #fcb823;
 
 
 
-/*footer*/
+                                                    /*footer*/
 
 .ultimo{
     text-align: center;

@@ -28,8 +28,8 @@
 
 
      <label for="usuario">USUARIO</label>
-     <input class="form" type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" required="">
-
+     <input class="form" type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" required="" >
+    
      <label for="password">CONTRASEÑA</label>
      <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" required=""> <br>
 

@@ -40,6 +40,21 @@
 
 
 
+ <div class="palabra">
+   <h2><a>Buscar</a> por:</h2> 
+   </div>
+<div class="buscar-contenedor">
+   
+<input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu zona o ciudad">
+
+<button id="btn" class="btn"><img src="/imagenes/imgsedes/lupa.png" alt=""></button>
+
+
+</div>
+
+
+
+
    <div class="centro">
 
     <div class="img-contenedor">
