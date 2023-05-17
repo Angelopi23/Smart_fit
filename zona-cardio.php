@@ -69,10 +69,6 @@
  </div>
 
 
- <div class="palabra2">
-   <h2>Zonas de <a>entrenamiento</a></h2> 
-   </div>
-
 
    <div class="img-contenedor">
 
