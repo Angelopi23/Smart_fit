@@ -1,5 +1,5 @@
 <?php
-$SERVER='localhost';
+$server='localhost';
 $username='root';
 $password='';
 $database='smar';

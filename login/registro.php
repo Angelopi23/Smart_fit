@@ -35,7 +35,7 @@
         <label for="usuario">EMAIL</label>
         <input class="form" type="email" name="email" id="email" placeholder="Ingrese su correo electronico" required="">
         <label for="usuario">CONTRASEÑA</label>
-        <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" required="">
+        <input class="form" type="password" name="password" id="password" placeholder="Ingrese su contraseña" required="">
         
         <div class="botones">
         <input class="boton" type="submit" value="Registrate">
@@ -43,8 +43,7 @@
         
         <p class="yatienes"><a href="/login/login.php">¿Ya tienes cuenta?</a></p>
 
-       
-
+ 
         </form>
 
       
