@@ -63,7 +63,7 @@
    </div>
  <div class="buscar-contenedor">
    
- <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu zona de entrenamiento">
+ <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu maquina de cardio">
 
  <button id="btn" class="btn"><img src="/imagenes/imgsedes/lupa.png" alt=""></button>
  </div>

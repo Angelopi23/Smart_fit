@@ -26,16 +26,16 @@
      <p>¡Bienvenido de nuevo!</p>
      <p>Por favor introduce tus datos para ingresar</p>
 
-
+      
      <label for="usuario">Email</label>
-     <input class="form" type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" required="" >
+     <input class="form" type="email" name="email" id="email" placeholder="Ingrese su correo electronico" required="" >
     
      
       <div class="botones">
-   <input  class="boton1" type="submit" value="Ingresar" id="ingresar">
+        <input  class="boton1" type="submit" value="Ingresar" id="ingresar">
     
      </div>  
-
+   
     
      </form>
 

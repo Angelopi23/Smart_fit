@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
     
 
     <section class="left-formulario">
-        <form action="" method="post">
+        <form action="registro.php" method="post">
 
 
          <div   class="logo" >
@@ -32,7 +33,7 @@
         <label for="usuario">APELLIDOS</label>
         <input class="form" type="text" name="apellidos" id="apellidos" placeholder="Ingrese sus apellidos" required="" pattern="[a-zA-Z]+" >
         <label for="usuario">EMAIL</label>
-        <input class="form" type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" required="">
+        <input class="form" type="email" name="email" id="email" placeholder="Ingrese su correo electronico" required="">
         <label for="usuario">CONTRASEÑA</label>
         <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" required="">
         

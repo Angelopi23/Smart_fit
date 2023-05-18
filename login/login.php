@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
    
 <section class="left-formulario">
     
-<form action="" method="post">
+<form action="login.php" method="post">
 
         <div class="logo" >
         <a  class="smart">SMART </a>
