@@ -27,11 +27,11 @@
 
         <nav class="menuarriba">
         <ul>
-            <li><a class="sede" href="/sedes.php">SEDES</a></li>
-            <li><a class="zona" href="">ZONAS DE ENTRENAMIENTO</a></li>
+            <li><a class="sede" href="/backend/sedes.php">SEDES</a></li>
+            <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="reservar" href="">RESERVAR</a></li>
             <li><a class="carrito" href="">CARRITO</a></li>
-          <li><a class="empieza" href="/login/login.php">EMPIEZA HOY</a></li>
+          <li><a class="empieza" href="">EMPIEZA HOY</a></li>
         </ul>
     </nav>
     </div>

@@ -1,3 +1,37 @@
+<?php
+
+require 'database.php';
+
+
+if(isset($_POST['registrar'])){
+
+    $nombres= $_POST['nombres'];
+    $apellidos= $_POST['apellidos'];
+    $email= $_POST['email'];
+    $contraseña= $_POST['contraseña'];
+
+    /*$contraseña=  password_hash($_POST['contraseña'], PASSWORD_BCRYPT);*//*este codigo encripta la contraseña, solo reemplazamos el
+    codigo de arriba
+     */
+    $sql= "INSERT INTO registro VALUES('','$nombres','$apellidos','$email','$contraseña')" ;
+
+    $ejecutarInsertar = mysqli_query($conexion,$sql);
+
+    if ($ejecutarInsertar){
+
+        ?>
+        <h3 class="ok">¡TE HAS REGISTRADO CORRECTAMENTE!</h3>
+        <?php     
+    
+     } else{
+         ?>
+        <h3 class="ups">¡UPS HA OCURRIDO UN ERROR!</h3>
+        <?php   
+     }
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +45,7 @@
 </head>
 <body>
 
-    
+      
 
     <section class="left-formulario">
         <form action="registro.php" method="post">
@@ -29,21 +63,21 @@
     
 
         <label for="usuario">NOMBRES</label>
-        <input  class="form"  type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre" required="" pattern="[a-zA-Z]+">  <!--required para que no envie formulario vacio--> <!--pattern para pedir que llene algo especifico-->
+        <input  class="form"  type="text" name="nombres"  placeholder="Ingrese su nombre" required="" pattern="[a-zA-Z]+">  <!--required para que no envie formulario vacio--> <!--pattern para pedir que llene algo especifico-->
         <label for="usuario">APELLIDOS</label>
-        <input class="form" type="text" name="apellidos" id="apellidos" placeholder="Ingrese sus apellidos" required="" pattern="[a-zA-Z]+" >
+        <input class="form" type="text" name="apellidos"  placeholder="Ingrese sus apellidos" required="" pattern="[a-zA-Z]+" >
         <label for="usuario">EMAIL</label>
-        <input class="form" type="email" name="email" id="email" placeholder="Ingrese su correo electronico" required="">
+        <input class="form" type="email" name="email"  placeholder="Ingrese su correo electronico" required="">
         <label for="usuario">CONTRASEÑA</label>
-        <input class="form" type="password" name="password" id="password" placeholder="Ingrese su contraseña" required="">
+        <input class="form" type="password" name="contraseña"  placeholder="Ingrese su contraseña" required="">
         
         <div class="botones">
-        <input class="boton" type="submit" value="Registrate">
+        <input class="boton" type="submit" name="registrar" value="Registrate" >
         </div>  
         
         <p class="yatienes"><a href="/login/login.php">¿Ya tienes cuenta?</a></p>
 
- 
+
         </form>
 
       

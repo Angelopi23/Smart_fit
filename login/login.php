@@ -15,7 +15,7 @@
    
 <section class="left-formulario">
     
-<form action="login.php" method="post">
+<form action="validar-login.php" method="post">
 
         <div class="logo" >
         <a  class="smart">SMART </a>
@@ -29,14 +29,14 @@
 
 
      <label for="usuario">USUARIO</label>
-     <input class="form" type="email" name="email" id="email" placeholder="Ingrese su correo electronico" required="" >
+     <input class="form" type="email" name="email" placeholder="Ingrese su correo electronico" required="" >
     
      <label for="password">CONTRASEÑA</label>
-     <input class="form" type="password" name="password" id="password" placeholder="Ingrese su contraseña" required=""> <br>
+     <input class="form" type="password" name="contraseña"  placeholder="Ingrese su contraseña" required=""> <br>
 
 
       <div class="botones">
-     <input class="boton1" type="submit" value="Ingresar">
+     <input class="boton1" type="submit" name="ingresar" value="Ingresar" >
      <input class="boton2" type="submit" value="Registrar" id="registrar">
      </div>  
 

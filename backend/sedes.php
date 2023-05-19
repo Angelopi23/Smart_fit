@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
    
-    <link rel="stylesheet" href="/css/estilo-sedes.css">
+    <link rel="stylesheet" href="../backend/css/estilo-sedes.css">
     <title>Sedes</title>
 
 </head>
@@ -28,10 +28,10 @@
         <nav class="menuarriba">
         <ul>
             <li><a class="sede" href="">SEDES</a></li>
-            <li><a class="zona" href="/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
+            <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="reservar" href="">RESERVAR</a></li>
             <li><a class="carrito" href="">CARRITO</a></li>
-          <li><a class="empieza" href="/login/login.php">EMPIEZA HOY</a></li>
+          <li><a class="empieza" href="">EMPIEZA HOY</a></li>
         </ul>
     </nav>
     </div>

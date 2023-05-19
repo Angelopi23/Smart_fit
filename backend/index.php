@@ -1,3 +1,25 @@
+
+<?php
+/*
+include("../backend/data/validar-usuario.php");*/
+session_start();
+$conexion=mysqli_connect('localhost','root','','smart'); 
+
+if(!isset($_SESSION['email'])){
+header("location:../login/login.php");
+
+}
+    
+$idUser=$_SESSION['email'];
+
+$mostrar="SELECT*FROM registro 
+WHERE email = '$idUser' " ;
+$result=$conexion->query($mostrar);
+
+$row=$result->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,11 +47,11 @@
 
         <nav class="menuarriba">
         <ul>
-            <li><a class="sede" href="/sedes.html">SEDES</a></li>
-            <li><a class="zona" href="/zonaentrenamiento.html">ZONAS DE ENTRENAMIENTO</a></li>
+            <li><a class="sede" href="/backend/sedes.php">SEDES</a></li>
+            <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="maquina" href="">MAQUINAS</a></li>
             <li><a class="carrito" href="">CARRITO</a></li>
-            <li><a class="empieza" href="/login/login.php">EMPIEZA HOY</a></li>
+            <li><a class="empieza" href=""><?php  echo utf8_decode($row['email']); ?></a></li>
         </ul>
     </nav>
     </div>
@@ -59,7 +81,7 @@
 
 <div class="menuabajo">
     <ul>
-        <li><a class="cardio" href="/zona-cardio.html">Cardio</a></li>
+        <li><a class="cardio" href="/backend/zona-cardio.php">Cardio</a></li>
         <li><a class="funcional" href="">Funcional</a></li>
         <li><a class="pesolibre" href="">Peso libre</a></li>
         <li><a class="fuerza" href="">Fuerza</a></li>
