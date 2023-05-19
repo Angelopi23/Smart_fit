@@ -82,3 +82,81 @@ body{
     color: #ffa500;
     background: none;
 }
+
+
+
+
+
+
+.carousel-item img{
+	filter: brightness(50%);
+	height: 40vh;
+}
+
+.carousel-caption{
+	bottom: 100px;
+	text-transform: uppercase;
+}
+
+.carousel{
+	margin-top: 64px;
+}
+
+.carousel-caption h5{
+    color: white;
+    font-size: 30px;
+    font-weight: 650;
+}
+
+@media screen and (max-width: 1350px){
+	.carousel-caption h5{
+		color: white;
+		font-size: 25px;
+		font-weight: 650;
+	}
+}
+
+@media screen and (max-width: 1120px){
+	.carousel-caption h5{
+		color: white;
+		font-size: 20px;
+		font-weight: 650;
+	}
+}
+
+@media screen and (max-width: 900px){
+	.carousel-caption{
+		top: 400px;
+		text-transform: uppercase;
+	}
+}
+
+
+
+@media screen and (max-width: 700px){
+	.carousel-item img{
+		filter: brightness(50%);
+		height: 35vh;
+	}
+}
+
+@media screen and (max-width: 550px){
+	.carousel-item img{
+		filter: brightness(50%);
+		height: 30vh;
+	}
+}
+
+@media screen and (max-width: 450px){
+	.carousel-item img{
+		filter: brightness(50%);
+		height: 25vh;
+	}
+}
+
+@media screen and (max-width: 400px){
+	.carousel-item img{
+		filter: brightness(50%);
+		height: 20vh;
+	}
+}
