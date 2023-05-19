@@ -1,5 +1,6 @@
 <?php
 
+
 require 'database.php';
 
 
@@ -10,9 +11,9 @@ if(isset($_POST['registrar'])){
     $email= $_POST['email'];
     $contraseña= $_POST['contraseña'];
 
-    /*$contraseña=  password_hash($_POST['contraseña'], PASSWORD_BCRYPT);*//*este codigo encripta la contraseña, solo reemplazamos el
-    codigo de arriba
-     */
+   /* $contraseña=  password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
+    este codigo encripta la contraseña, solo reemplazamos el codigo de arriba*/
+     
     $sql= "INSERT INTO registro VALUES('','$nombres','$apellidos','$email','$contraseña')" ;
 
     $ejecutarInsertar = mysqli_query($conexion,$sql);
@@ -48,8 +49,8 @@ if(isset($_POST['registrar'])){
       
 
     <section class="left-formulario">
-        <form action="registro.php" method="post">
-
+      <form action="registro.php" method="post">
+        
 
          <div   class="logo" >
         <a  class="smart">SMART </a>
@@ -75,7 +76,7 @@ if(isset($_POST['registrar'])){
         <input class="boton" type="submit" name="registrar" value="Registrate" >
         </div>  
         
-        <p class="yatienes"><a href="/login/login.php">¿Ya tienes cuenta?</a></p>
+        <p class="yatienes"><a href="/backend/login/login.php">¿Ya tienes cuenta?</a></p>
 
 
         </form>

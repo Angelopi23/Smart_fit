@@ -40,7 +40,7 @@
      <input class="boton2" type="submit" value="Registrar" id="registrar">
      </div>  
 
-     <p class="olvidaste"><a href="/login/olvidarcontraseña.php">¿Olvidaste tu contraseña?</a></p>
+     <p class="olvidaste"><a href="/backend/login/olvidarcontraseña.php">¿Olvidaste tu contraseña?</a></p>
 
      </form>
 
@@ -54,7 +54,7 @@
     </section>
 
 
-    <script src="/JS/login.js"></script>
+    <script src="/backend/JS/login.js"></script>
 
 
 

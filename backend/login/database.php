@@ -1,5 +1,6 @@
 <?php
-/*conexion a la base de datos*/
+
+/*conexion a la base de datos POR XAMP*/
 $server='localhost';
 $username='root';
 $password='';
@@ -13,7 +14,7 @@ $conexion=mysqli_connect('localhost','root','','smart');
 
 
 
-
+?>
 
 
 

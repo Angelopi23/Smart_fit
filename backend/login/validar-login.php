@@ -1,5 +1,7 @@
 <?php
-/*
+
+
+
 $email=$_POST['email'];
 $contraseña=$_POST['contraseña'];
 
@@ -19,13 +21,13 @@ $resultado=mysqli_query($conexion,$consulta);
 $filas=mysqli_num_rows($resultado);
 
 if($filas){
-    header("location:../backend/index.php");
+    header("location:/backend/index.php");
 
 }else{
 
     ?>
     <?php
-    include("../smart_fit/login/login.php");
+    include("login.php");
     ?>
     <h2 class="advertencia">INGRESE LOS DATOS CORRECTAMENTE</h2>
     <?php
@@ -33,4 +35,3 @@ if($filas){
 
 mysqli_free_result($resultado);
 mysqli_close($conexion);
-*/

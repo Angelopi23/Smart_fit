@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
     
-    <link rel="stylesheet" href="/css/nueva-contra.css">
-    <title>Nueva contraseña</title>
+    <link rel="stylesheet" href="/css/olvidas-contra.css">
+    <title>Olvidaste contraseña</title>
 </head>
 <body>
     
@@ -22,23 +22,21 @@
         <a  class="fit"> FIT</a>
         </div>  
 
-        <h2>Ingresa tu nueva contraseña <a>para empezar</a> </h2> <br>
+        <h2>Ingresa tu email <a>para empezar</a> </h2> <br>
      <p>¡Bienvenido de nuevo!</p>
      <p>Por favor introduce tus datos para ingresar</p>
 
-
-     <label for="password">NUEVA CONTRASEÑA</label>
-     <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su nueva contraseña" required=""> <br>
-     <label for="password">CONFIRMAR CONTRASEÑA</label>
-     <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Confirme su contraseña" required=""> <br>
-
+      
+     <label for="usuario">Email</label>
+     <input class="form" type="email" name="email" id="email" placeholder="Ingrese su correo electronico" required="" >
+    
+     
       <div class="botones">
-     <input class="boton1" type="submit" value="Confirmar">
-     
+        <input  class="boton1" type="submit" value="Ingresar" id="ingresar">
+    
      </div>  
-
-     
-
+   
+    
      </form>
 
     </section>
@@ -51,7 +49,7 @@
     </section>
 
 
-    <script src="/JS/login.js"></script>
+    <script src="/backend/JS/olvidaste.js"></script>
 
 
 

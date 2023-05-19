@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilo-seleccion.css">
+</head>
+<body>
+
+
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-xl fixed-top" id="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="#" id="logo">SMART <img src="css/logo2.png"><span>FIT</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span><i class="fa-solid fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">SEDES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">ZONAS DE ENTRENAMIENTO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">RESERVAR</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-3" href="#">CARRITO</a>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <button type="button" class="dropdown-toggle btn" data-bs-toggle="dropdown">
+                    Kenyi Lagos
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><hr class="dropdown-divider"></hr></li>
+                    <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!--NAVBAR-->
+
+    <!-- Portada -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="imagenes/imgreserva/fondogym2.png" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="align-middle">Reserva tus maquinas y disfruta de la mejor experiencia</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Portada -->
+
+
+
+    <section class="seccion container-md">
+
+        <div class="row pt-3 pb-3">
+          <h3>Reserva <span>por:</span></h3>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-6 col-xl">
+            <form action="">
+              <div class="selectbox col">
+                <div class="select " id="select">
+                  <div class="contenido-select" id="contselect">
+                    <h1 class="titulo">Por sede</h1>
+                    <p class="descripcion">Elige tu sede</p>
+                  </div>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+  
+  
+                <div class="opciones" id="opciones">
+                  <a href="#" class="opcion">
+                    <div class="contenido-opcion">
+                      <div class="textos">
+                        <p class="descripcion" style="text-decoration: solid;">La Molina</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opcion">
+                    <div class="contenido-opcion">
+                      <div class="textos">
+                        <p class="descripcion">San Borja</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opcion">
+                    <div class="contenido-opcion">
+                      <div class="textos">
+                        <p class="descripcion">San Juan de Miraflores</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+        
+              </div>
+        
+              <input type="hidden" name="sede" id="inputSelect" value="">
+            </form>
+          </div>
+  
+  
+  
+          <div class="col-sm-6 col-xl">
+            <form action="">
+              <div class="selectboxzona col">
+                <div class="selectzona " id="selectzona">
+                  <div class="contenido-selectzona" id="contselectzona">
+                    <h1 class="titulozona">Por zona</h1>
+                    <p class="descripcionzona">Elige tu zona</p>
+                  </div>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+  
+  
+                <div class="opcioneszona" id="opcioneszona">
+                  <a href="#" class="opcionzona">
+                    <div class="contenido-opcionzona">
+                      <div class="textoszona">
+                        <p class="descripcionzona">Zona de Fuerza</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opcionzona">
+                    <div class="contenido-opcionzona">
+                      <div class="textoszona">
+                        <p class="descripcionzona">Zona Funcional</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opcionzona">
+                    <div class="contenido-opcionzona">
+                      <div class="textoszona">
+                        <p class="descripcionzona">Zona de cardio</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+        
+              </div>
+        
+              <input type="hidden" name="zona" id="inputSelectzona" value="">
+            </form>
+          </div>
+  
+  
+  
+  
+  
+          <div class="col-sm-6 col-xl">
+            <form action="">
+              <div class="selectboxmaq col">
+                <div class="selectmaq " id="selectmaq">
+                  <div class="contenido-selectmaq" id="contselectmaq">
+                    <h1 class="titulomaq">Por máquina</h1>
+                    <p class="descripcionmaq">Elige tu máquina</p>
+                  </div>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+  
+  
+                <div class="opcionesmaq" id="opcionesmaq">
+                  <a href="#" class="opcionmaq">
+                    <div class="contenido-opcionmaq">
+                      <div class="textosmaq">
+                        <p class="descripcionmaq">Hack Squat</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opcionmaq">
+                    <div class="contenido-opcionmaq">
+                      <div class="textosmaq">
+                        <p class="descripcionmaq">Empuje de Cadera</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opcionmaq">
+                    <div class="contenido-opcionmaq">
+                      <div class="textosmaq">
+                        <p class="descripcionmaq">Jersey</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opcionmaq">
+                    <div class="contenido-opcionmaq">
+                      <div class="textosmaq">
+                        <p class="descripcionmaq">Pres de Banca</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+        
+              </div>
+        
+              <input type="hidden" name="maq" id="inputSelectmaq" value="">
+            </form>
+          </div>
+  
+  
+  
+  
+  
+  
+  
+  
+          <div class="col-sm-6 col-xl">
+            <form action="">
+              <div class="selectboxdia col">
+                <div class="selectdia " id="selectdia">
+                  <div class="contenido-selectdia" id="contselectdia">
+                    <h1 class="titulodia">Por fecha</h1>
+                    <p class="descripciondia">Elige un día</p>
+                  </div>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+  
+  
+                <div class="opcionesdia" id="opcionesdia">
+                  <a href="#" class="opciondia">
+                    <div class="contenido-opciondia">
+                      <div class="textosdia">
+                        <p class="descripciondia">19 de mayo</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="opciondia">
+                    <div class="contenido-opciondia">
+                      <div class="textosdia">
+                        <p class="descripciondia">20 de mayo</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+        
+              </div>
+        
+              <input type="hidden" name="dia" id="inputSelectdia" value="">
+            </form>
+          </div>
+  
+  
+  
+  
+          <div class="col-sm-12 col-xl-2">
+            <div class="filtro">
+              <a class="btn botonfil pt-4 pb-4" href="#">Filtrar <i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+          </div>
+  
+  
+      
+        </div>
+
+
+
+
+        <div class="row mt-4">
+            <div class="col-lg-6">
+              <img class="w-100 mb-3" src="imagenes/imgreserva/primera-1.png" alt="" srcset="">
+              <img class="w-100 mb-3" src="imagenes/imgreserva/primera-2.png" alt="" srcset="">
+              <img class="w-100 mb-3" src="imagenes/imgreserva/primera3.png" alt="" srcset="">
+            </div>
+            <div class="col-lg-6">
+              <img class="w-100 mb-3" src="imagenes/imgreserva/segunda-1.png" alt="" srcset="">
+              <img class="w-100 mb-3" src="imagenes/imgreserva/segunda2.png" alt="" srcset="">
+              <div class="row">
+                <div class="col-6">
+                  <img class="w-100" style="height: 86.8%;" src="imagenes/imgreserva/segunda-3-1.png" alt="" srcset="">
+                </div>
+                <div class="col-6">
+                  <img class="w-100 " style="height: 86.8%;" src="imagenes/imgreserva/segunda-3-2.png" alt="" srcset="">
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="row mb-5 text-center">
+            <h3>¡Saca tu <span>mejor forma!</span></h3>
+          </div>
+
+
+
+    </section>
+
+
+    <script src="js/seleccion.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
