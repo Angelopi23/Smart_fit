@@ -1,16 +1,8 @@
 
 <?php
 
-
-
-
-
-
-
-
-
 /*
-include("../backend/data/validar-usuario.php");
+include("../backend/data/validar-usuario.php");*/
 session_start();
 $conexion=mysqli_connect('localhost','root','','smart'); 
 
@@ -22,11 +14,11 @@ header("location:../login/login.php");
 $idUser=$_SESSION['email'];
 
 $mostrar="SELECT*FROM registro
- WHERE nombres = '$idUser' " ;
+ WHERE email = '$idUser' " ;
 $result=$conexion->query($mostrar);
 
 $row=$result->fetch_assoc();
-*/
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +52,7 @@ $row=$result->fetch_assoc();
             <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="maquina" href="">MAQUINAS</a></li>
             <li><a class="carrito" href="">CARRITO</a></li>
-            <li><a class="empieza" href=""><?php /*  echo utf8_decode($row['nombres']); */?></a></li>
+            <li><a class="empieza" href=""><?php echo utf8_decode($row['email']); ?></a></li>
         </ul>
     </nav>
     </div>
