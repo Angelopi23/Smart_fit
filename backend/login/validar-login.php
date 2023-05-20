@@ -18,7 +18,18 @@ $consulta= "SELECT*FROM registro WHERE email='$email' and contraseña='$contrase
 
 $resultado=mysqli_query($conexion,$consulta);
 
+
 $filas=mysqli_num_rows($resultado);
+
+if($resultado){
+    while($row = $resultado->fetch_array()){
+        $nombres = $row['nombres'];
+        $apellidos = $row['apellidos'];
+    }
+
+    $_SESSION['nombres']=$nombres;
+    $_SESSION['apellidos']=$apellidos;
+}
 
 if($filas){
     header("location:/backend/index.php");

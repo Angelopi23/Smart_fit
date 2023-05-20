@@ -12,12 +12,15 @@ header("location:../login/login.php");
 }
     
 $idUser=$_SESSION['email'];
+$nombre = $_SESSION['nombres'];
+$apellido = $_SESSION['apellidos'];
 
 $mostrar="SELECT*FROM registro
  WHERE email = '$idUser' " ;
 $result=$conexion->query($mostrar);
 
 $row=$result->fetch_assoc();
+
 
 ?>
 
@@ -52,7 +55,7 @@ $row=$result->fetch_assoc();
             <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="maquina" href="">MAQUINAS</a></li>
             <li><a class="carrito" href="">CARRITO</a></li>
-            <li><a class="empieza" href=""><?php echo utf8_decode($row['email']); ?></a></li>
+            <li><a class="empieza" href=""><?php echo utf8_decode($nombre.' '.$apellido); ?></a></li>
         </ul>
     </nav>
     </div>
