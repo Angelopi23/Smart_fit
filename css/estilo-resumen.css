@@ -2,7 +2,6 @@ body {
     /*fondo*/
     background-color: black;
     font-family: Arial;
-
 }
 
 * {
@@ -112,20 +111,6 @@ body {
     display: none;
 }
 
-/*edicion de la img derecha*/
-.imgderecha {
-    display: flex;
-
-    padding: 10px;
-    padding-top: 200px;
-}
-
-.imgderecha img {
-    width: 300px;
-    height: 600px;
-}
-
-
 /*edicion del menu buscador*/
 .palabra h2 {
     color: white;
@@ -141,99 +126,35 @@ body {
     color: #fcb823
 }
 
-.buscador1 {
-    background: white;
-    color: black;
-    font-size: 20px;
-    font-family: sans-serif;
-    border-radius: 20px 0 0 20px;
-    border: 1px solid;
-    height: 100%;
-    width: 50%;
-    padding: 10px 0;
-
-}
-
-
-.buscar-contenedor {
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 30px;
-}
-
-.btn {
-    background: #c8c8c8;
-    border-radius: 0 20px 20px 0;
-    padding: 0;
-    margin: 0;
-    width: 100px;
-}
-
-.btn img {
-    width: 50%;
-}
-
-/*efecto del boton */
-.buscar-contenedor .btn:active {
-    transform: scale(0.9);
-}
-
-.btn:hover {
-    cursor: pointer;
-}
-
-
-/*centro*/
-
-.centro {
-    display: grid;
-    grid-template-columns: 75% 25%;
-    /* Divide la pantalla en dos columnas */
-    grid-gap: 20px;
-}
-
-
 .img-contenedor {
-   
+
     display: flex;
     justify-content: center;
     padding: 10px;
-    
+
 }
 
-/*cuando el mouse se posiciona en la img*/
+/*cuando el mouse se posiciona en la img
 .item:hover {
     filter: opacity(0.9);
     transform: scale(1.04);
-}
+}*/
 
 .img-contenedor img {
     width: 60%;
     height: 100%;
 }
 
-.item{
-    
+.item {
     display: flex;
     justify-content: center;
 
 }
 
 
-/*footer*/
 
-.ultimo {
-    text-align: center;
-    color: white;
-    font-size: 25px;
-    padding: 30px;
-}
 
-.ultimo h2 a {
-    color: #fcb823
-}
-.left-formulario{
+.formulario {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -241,15 +162,80 @@ body {
     padding-right: 400px;
     padding-top: 30px;
 }
-.left-formulario .boton1{
-    background: #fcb823;
-}
-.left-formulario form{
+
+.formulario form {
     justify-content: normal;
 }
-.left-formulario label{
+
+.formulario label {
     margin: 10px 0;
 }
+
+.formulario form {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
+/*llenado de datos del usuario*/
+.form {
+    background: black;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-family: sans-serif;
+    border: 1px solid white;
+
+}
+
+.formulario h2 {
+    font-size: 2em;
+    margin: 5px 0;
+}
+
+.formulario form>input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.2em;
+
+}
+
+.formulario label {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0;
+    color: white;
+
+}
+
+/*contenedor de botones*/
+.formulario .botones {
+    width: 100%;
+    text-align: center;
+}
+ /*edicion del boton 1*/
+.formulario .boton_agregar{
+    width: 40%; 
+    background: #fcb823;
+    border-radius: 6px;
+    padding: 12px;
+    color: black;
+    margin: 10px auto;
+    font-size: 16px;
+   font-weight: bold;
+   cursor: pointer; /*para que aparesca el simbolo de la manito*/
+   transition: .10s;
+   margin-right: 20px;
+   padding-bottom: 20px;
+}
+
+
 
 /*Editando Responsive*/
 
@@ -301,19 +287,9 @@ body {
 }
 
 @media(max-width: 730px) {
-
-    .imgderecha {
-        display: none;
-    }
-
-    .centro {
-        grid-template-columns: 100% 0;
-        /* Divide la pantalla en 1 columnas */
-    }
-
     .img-contenedor img {
         max-width: 500px;
     }
-    
+
 
 }
