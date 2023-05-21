@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
     
-    <link rel="stylesheet" href="/css/nueva-contra.css">
+    <link rel="stylesheet" href="/backend/css/nueva-contra.css">
     <title>Nueva contraseña</title>
 </head>
 <body>

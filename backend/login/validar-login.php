@@ -23,8 +23,8 @@ $filas=mysqli_num_rows($resultado);
 
 if($resultado){
     while($row = $resultado->fetch_array()){
-        $nombres = $row['nombres'];
-        $apellidos = $row['apellidos'];
+        $nombres =strtoupper($row['nombres']);      //strtoupper codigo que pone mayusculas
+        $apellidos =strtoupper( $row['apellidos']);
     }
 
     $_SESSION['nombres']=$nombres;
@@ -33,6 +33,7 @@ if($resultado){
 
 if($filas){
     header("location:/backend/index.php");
+    
 
 }else{
 

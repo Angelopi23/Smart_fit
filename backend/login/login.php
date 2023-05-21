@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/estilo-login.css">
+    <link rel="stylesheet" href="/backend/css/estilo-login.css">
     <title>login</title>
 </head>
 

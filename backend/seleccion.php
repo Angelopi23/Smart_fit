@@ -1,3 +1,28 @@
+
+<?php
+
+session_start();
+$conexion=mysqli_connect('localhost','root','','smart'); 
+
+if(!isset($_SESSION['email'])){
+header("location:../login/login.php");
+
+}
+    
+$idUser=$_SESSION['email'];
+$nombre = $_SESSION['nombres'];
+$apellido = $_SESSION['apellidos'];
+
+$mostrar="SELECT*FROM registro
+ WHERE email = '$idUser' " ;
+$result=$conexion->query($mostrar);
+
+$row=$result->fetch_assoc();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/estilo-seleccion.css">
+    <link rel="stylesheet" href="/backend/css/estilo-seleccion.css">
 </head>
 <body>
 
@@ -38,7 +63,7 @@
               <li class="nav-item">
                 <div class="dropdown">
                   <button type="button" class="dropdown-toggle btn" data-bs-toggle="dropdown">
-                    Kenyi Lagos
+                  <?php echo utf8_decode($nombre.' '.$apellido); ?>
                   </button>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Perfil</a></li>

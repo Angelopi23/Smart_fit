@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
     
-    <link rel="stylesheet" href="/css/olvidas-contra.css">
+    <link rel="stylesheet" href="/backend/css/olvidas-contra.css">
     <title>Olvidaste contraseña</title>
 </head>
 <body>
-    
+
    
 <section class="left-formulario">
     

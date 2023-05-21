@@ -1,3 +1,27 @@
+<?php
+
+session_start();
+$conexion=mysqli_connect('localhost','root','','smart'); 
+
+if(!isset($_SESSION['email'])){
+header("location:../login/login.php");
+
+}
+    
+$idUser=$_SESSION['email'];
+$nombre = $_SESSION['nombres'];
+$apellido = $_SESSION['apellidos'];
+
+$mostrar="SELECT*FROM registro
+ WHERE email = '$idUser' " ;
+$result=$conexion->query($mostrar);
+
+$row=$result->fetch_assoc();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/zona-entrenamiento.css">
+    <link rel="stylesheet" href="/backend/css/zona-entrenamiento.css">
     <title>Zonas de entrenamiento</title>
 </head>
 <body>
@@ -31,7 +55,7 @@
             <li><a class="zona" href="">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="reservar" href="">RESERVAR</a></li>
             <li><a class="carrito" href="">CARRITO</a></li>
-          <li><a class="empieza" href="">EMPIEZA HOY</a></li>
+          <li><a class="empieza" href=""><?php echo utf8_decode($nombre.' '.$apellido); ?></a></li>
         </ul>
     </nav>
     </div>
