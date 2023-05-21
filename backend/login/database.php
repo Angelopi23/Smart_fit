@@ -4,10 +4,10 @@
 $server='localhost';
 $username='root';
 $password='';
-$database='smart';
+$database='smart_fit';
 
 
-$conexion=mysqli_connect('localhost','root','','smart'); 
+$conexion=mysqli_connect('localhost','root','','smart_fit'); 
 
 
 ?>

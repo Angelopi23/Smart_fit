@@ -14,7 +14,7 @@ if(isset($_POST['registrar'])){
    /* $contraseña=  password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
     este codigo encripta la contraseña, solo reemplazamos el codigo de arriba*/
      
-    $sql= "INSERT INTO registro VALUES('','$nombres','$apellidos','$email','$contraseña')" ;
+    $sql= "INSERT INTO usuario VALUES('','$nombres','$apellidos','$email','$contraseña')" ;
 
     $ejecutarInsertar = mysqli_query($conexion,$sql);
 

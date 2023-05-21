@@ -10,9 +10,9 @@ session_start();
 $_SESSION['email']=$email;
 
 
-$conexion=mysqli_connect('localhost','root','','smart'); 
+$conexion=mysqli_connect('localhost','root','','smart_fit'); 
 
-$consulta= "SELECT*FROM registro WHERE email='$email' and contraseña='$contraseña'  ";
+$consulta= "SELECT*FROM usuario WHERE email='$email' and contraseña='$contraseña'  ";
 
 
 

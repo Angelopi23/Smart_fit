@@ -2,7 +2,7 @@
 <?php
 
 session_start();
-$conexion=mysqli_connect('localhost','root','','smart'); 
+$conexion=mysqli_connect('localhost','root','','smart_fit'); 
 
 if(!isset($_SESSION['email'])){
 header("location:../login/login.php");
@@ -13,7 +13,7 @@ $idUser=$_SESSION['email'];
 $nombre = $_SESSION['nombres'];
 $apellido = $_SESSION['apellidos'];
 
-$mostrar="SELECT*FROM registro
+$mostrar="SELECT*FROM usuario
  WHERE email = '$idUser' " ;
 $result=$conexion->query($mostrar);
 
