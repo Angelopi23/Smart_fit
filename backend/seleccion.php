@@ -49,13 +49,13 @@ $row=$result->fetch_assoc();
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">SEDES</a>
+                <a class="nav-link" href="/backend/sedes.php">SEDES</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">ZONAS DE ENTRENAMIENTO</a>
+                <a class="nav-link" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">RESERVAR</a>
+                <a class="nav-link" href="/backend/login/login.php">RESERVAR</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link me-3" href="#">CARRITO</a>
@@ -326,7 +326,7 @@ $row=$result->fetch_assoc();
     </section>
 
 
-    <script src="js/seleccion.js"></script>
+    <script src="/backend/JS/seleccion.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
