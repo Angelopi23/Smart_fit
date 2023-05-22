@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2023 a las 21:04:40
+-- Tiempo de generación: 22-05-2023 a las 07:32:29
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `smart_fit`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito`
+--
+
+CREATE TABLE `carrito` (
+  `id` int(11) NOT NULL,
+  `id_seleccion` int(11) NOT NULL,
+  `id_turno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -115,20 +127,6 @@ INSERT INTO `horario-tarde` (`id`, `hora`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `resumen`
---
-
-CREATE TABLE `resumen` (
-  `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_sedes` int(11) NOT NULL,
-  `id_zona_entrenamiento` int(11) NOT NULL,
-  `id_fecha` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `sedes`
 --
 
@@ -152,22 +150,37 @@ INSERT INTO `sedes` (`id`, `sede`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `seleccion`
+--
+
+CREATE TABLE `seleccion` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_sedes` int(11) NOT NULL,
+  `id_zona_entrenamiento` int(11) NOT NULL,
+  `id_fecha` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `turnos`
 --
 
 CREATE TABLE `turnos` (
   `id` int(11) NOT NULL,
-  `turno` varchar(50) NOT NULL
+  `turno` varchar(50) DEFAULT NULL,
+  `id_mañana` int(11) DEFAULT NULL,
+  `id_tarde` int(11) DEFAULT NULL,
+  `id_noche` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `turnos`
 --
 
-INSERT INTO `turnos` (`id`, `turno`) VALUES
-(1, 'mañana'),
-(2, 'tarde'),
-(3, 'noche');
+INSERT INTO `turnos` (`id`, `turno`, `id_mañana`, `id_tarde`, `id_noche`) VALUES
+(1, NULL, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -227,6 +240,14 @@ CREATE TABLE `zona_entrenamiento` (
   `id_zona_fuerza` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `zona_entrenamiento`
+--
+
+INSERT INTO `zona_entrenamiento` (`id`, `entrenamiento`, `id_zona_cardio`, `id_zona_funcional`, `id_zona_fuerza`) VALUES
+(1, 'cardio', 1, NULL, NULL),
+(2, 'funcional', NULL, 1, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -277,6 +298,14 @@ INSERT INTO `zona_funcional` (`id_zona_funcional`, `maquina`) VALUES
 --
 
 --
+-- Indices de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_seleccion` (`id_seleccion`),
+  ADD UNIQUE KEY `id_turno` (`id_turno`);
+
+--
 -- Indices de la tabla `fecha`
 --
 ALTER TABLE `fecha`
@@ -301,26 +330,29 @@ ALTER TABLE `horario-tarde`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `resumen`
---
-ALTER TABLE `resumen`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_sedes` (`id_sedes`),
-  ADD UNIQUE KEY `id_zona_entrenamiento` (`id_zona_entrenamiento`),
-  ADD UNIQUE KEY `id_fecha` (`id_fecha`),
-  ADD UNIQUE KEY `id_usuario` (`id_usuario`);
-
---
 -- Indices de la tabla `sedes`
 --
 ALTER TABLE `sedes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `seleccion`
+--
+ALTER TABLE `seleccion`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_sedes` (`id_sedes`),
+  ADD UNIQUE KEY `id_zona_entrenamiento` (`id_zona_entrenamiento`),
+  ADD UNIQUE KEY `id_usuario` (`id_usuario`),
+  ADD UNIQUE KEY `id_fecha` (`id_fecha`);
+
+--
 -- Indices de la tabla `turnos`
 --
 ALTER TABLE `turnos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_mañana` (`id_mañana`),
+  ADD UNIQUE KEY `id_tarde` (`id_tarde`),
+  ADD UNIQUE KEY `id_noche` (`id_noche`);
 
 --
 -- Indices de la tabla `usuario`
@@ -360,6 +392,12 @@ ALTER TABLE `zona_funcional`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `fecha`
 --
 ALTER TABLE `fecha`
@@ -384,22 +422,22 @@ ALTER TABLE `horario-tarde`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT de la tabla `resumen`
---
-ALTER TABLE `resumen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `sedes`
 --
 ALTER TABLE `sedes`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `seleccion`
+--
+ALTER TABLE `seleccion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `turnos`
 --
 ALTER TABLE `turnos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -417,7 +455,7 @@ ALTER TABLE `zona_cardio`
 -- AUTO_INCREMENT de la tabla `zona_entrenamiento`
 --
 ALTER TABLE `zona_entrenamiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `zona_fuerza`
@@ -436,13 +474,27 @@ ALTER TABLE `zona_funcional`
 --
 
 --
--- Filtros para la tabla `resumen`
+-- Filtros para la tabla `carrito`
 --
-ALTER TABLE `resumen`
-  ADD CONSTRAINT `resumen_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `resumen_ibfk_2` FOREIGN KEY (`id_sedes`) REFERENCES `sedes` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `resumen_ibfk_3` FOREIGN KEY (`id_zona_entrenamiento`) REFERENCES `zona_entrenamiento` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `resumen_ibfk_4` FOREIGN KEY (`id_fecha`) REFERENCES `fecha` (`id`) ON UPDATE CASCADE;
+ALTER TABLE `carrito`
+  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`id_turno`) REFERENCES `turnos` (`id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `seleccion`
+--
+ALTER TABLE `seleccion`
+  ADD CONSTRAINT `seleccion_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `seleccion_ibfk_2` FOREIGN KEY (`id_sedes`) REFERENCES `sedes` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `seleccion_ibfk_3` FOREIGN KEY (`id_zona_entrenamiento`) REFERENCES `zona_entrenamiento` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `seleccion_ibfk_6` FOREIGN KEY (`id_fecha`) REFERENCES `fecha` (`id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `turnos`
+--
+ALTER TABLE `turnos`
+  ADD CONSTRAINT `turnos_ibfk_1` FOREIGN KEY (`id_mañana`) REFERENCES `horario-mañana` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `turnos_ibfk_2` FOREIGN KEY (`id_tarde`) REFERENCES `horario-tarde` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `turnos_ibfk_3` FOREIGN KEY (`id_noche`) REFERENCES `horario-noche` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `zona_entrenamiento`
