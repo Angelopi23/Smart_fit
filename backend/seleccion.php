@@ -19,6 +19,9 @@ $result=$conexion->query($mostrar);
 
 $row=$result->fetch_assoc();
 
+$querySede = "SELECT id, sede FROM sedes ORDER BY sede ASC";
+$resultSede = $conexion->query($querySede);
+
 
 ?>
 
@@ -35,6 +38,8 @@ $row=$result->fetch_assoc();
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
     <link rel="stylesheet" href="/backend/css/estilo-seleccion.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -113,27 +118,15 @@ $row=$result->fetch_assoc();
   
   
                 <div class="opciones" id="opciones">
-                  <a href="#" class="opcion">
-                    <div class="contenido-opcion">
-                      <div class="textos">
-                        <p class="descripcion" style="text-decoration: solid;">La Molina</p>
+                  <?php while($rowSede = $resultSede->fetch_assoc()) {?>
+                    <a href="#" class="opcion">
+                      <div class="contenido-opcion">
+                        <div class="textos">
+                          <p class="descripcion" style="text-decoration: solid;"><?php echo $rowSede['sede'];?></p>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                  <a href="#" class="opcion">
-                    <div class="contenido-opcion">
-                      <div class="textos">
-                        <p class="descripcion">San Borja</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="opcion">
-                    <div class="contenido-opcion">
-                      <div class="textos">
-                        <p class="descripcion">San Juan de Miraflores</p>
-                      </div>
-                    </div>
-                  </a>
+                    </a>
+                  <?php } ?>
                 </div>
         
               </div>
