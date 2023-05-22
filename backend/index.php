@@ -30,7 +30,7 @@ $row=$result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart fit</title>
     <link rel="shortcut icon" href="/logoFAVICON/smart.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/estilos-principal.css">
+    <link rel="stylesheet" href="/backend/css/estilos-principal.css">
 </head>
 <body>
 
@@ -39,12 +39,12 @@ $row=$result->fetch_assoc();
         <div class="menu container">
     
         <a  class="smart">SMART </a>
-        <img id="logo2" src="css/logo2.png" alt="">
+        <img id="logo2" src="/backend/css/logo2.png" alt="">
 
         <a  class="fit"> FIT</a>
         <input type="checkbox" id="menu"/>
         <label for="menu">
-           <img src="css/menu-icono.png" class="menu-icono" alt=""> 
+           <img src="/backend/css/menu-icono.png" class="menu-icono" alt=""> 
         </label>
 
         <nav class="menuarriba">

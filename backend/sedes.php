@@ -41,12 +41,12 @@ $row=$result->fetch_assoc();
         <div class="menu container">
     
         <a  class="smart">SMART </a>
-        <img id="logo2" src="css/logo2.png" alt="">
+        <img id="logo2" src="/backend/css/logo2.png" alt="">
 
         <a  class="fit"> FIT</a>
         <input type="checkbox" id="menu"/>
         <label for="menu">
-           <img src="css/menu-icono.png" class="menu-icono" alt=""> 
+           <img src="/backend/css/menu-icono.png" class="menu-icono" alt=""> 
         </label>
 
         <nav class="menuarriba">
@@ -71,7 +71,7 @@ $row=$result->fetch_assoc();
    
 <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu zona o ciudad">
 
-<button id="btn" class="btn"><img src="/imagenes/imgsedes/lupa.png" alt=""></button>
+<button id="btn" class="btn"><img src="/backend/imagenes/imgsedes/lupa.png" alt=""></button>
 
 
 </div>
@@ -83,18 +83,18 @@ $row=$result->fetch_assoc();
 
     <div class="img-contenedor">
 
-        <a class="item" ><img src="/imagenes/imgsedes/openplazahuancayo.png" alt=""> </a>
-        <a class="item" ><img src="/imagenes/imgsedes/realplazahuancayo.png" alt=""> </a>
-        <a class="item" ><img src="/imagenes/imgsedes/fontana.png" alt=""> </a>
-        <a class="item" ><img src="/imagenes/imgsedes/mallSantaAnita.png" alt=""> </a>
-        <a class="item" ><img src="/imagenes/imgsedes/RealPlazaPuruchuco.png" alt=""> </a>
-        <a class="item" ><img src="/imagenes/imgsedes/AlamedaPlazaSJL.png" alt=""> </a>
+        <a class="item" ><img src="/backend/imagenes/imgsedes/openplazahuancayo.png" alt=""> </a>
+        <a class="item" ><img src="/backend/imagenes/imgsedes/realplazahuancayo.png" alt=""> </a>
+        <a class="item" ><img src="/backend/imagenes/imgsedes/fontana.png" alt=""> </a>
+        <a class="item" ><img src="/backend/imagenes/imgsedes/mallSantaAnita.png" alt=""> </a>
+        <a class="item" ><img src="/backend/imagenes/imgsedes/RealPlazaPuruchuco.png" alt=""> </a>
+        <a class="item" ><img src="/backend/imagenes/imgsedes/AlamedaPlazaSJL.png" alt=""> </a>
     </div>
 
 
 
     <div class="imgderecha">
-            <img src="/imagenes/imgsedes/imgderecha.png" alt="">
+            <img src="/backend/imagenes/imgsedes/imgderecha.png" alt="">
        </div>
     </div>
 

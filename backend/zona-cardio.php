@@ -41,12 +41,12 @@ $row=$result->fetch_assoc();
         <div class="menu container">
     
         <a  class="smart">SMART </a>
-        <img id="logo2" src="css/logo2.png" alt="">
+        <img id="logo2" src="/backend/css/logo2.png" alt="">
 
         <a  class="fit"> FIT</a>
         <input type="checkbox" id="menu"/>
         <label for="menu">
-           <img src="css/menu-icono.png" class="menu-icono" alt=""> 
+           <img src="/backend/css/menu-icono.png" class="menu-icono" alt=""> 
         </label>
 
         <nav class="menuarriba">
@@ -74,7 +74,7 @@ $row=$result->fetch_assoc();
   </div>
 
   <div class="cardio2">
-  <img src="/imagenes/zonas-cardio/portada.png" alt="">
+  <img src="/backend/imagenes/zonas-cardio/portada.png" alt="">
   </div>
   </div>
 
@@ -89,21 +89,21 @@ $row=$result->fetch_assoc();
    
  <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu maquina de cardio">
 
- <button id="btn" class="btn"><img src="/imagenes/imgsedes/lupa.png" alt=""></button>
+ <button id="btn" class="btn"><img src="/backend/imagenes/imgsedes/lupa.png" alt=""></button>
  </div>
 
 
 
    <div class="img-contenedor">
 
-    <div class="item"><h2 class="uno">CAMINADORA</h2><img src="/imagenes/zonas-cardio/caminadora.png" alt=""></div>
-    <div class="item"><h2>ESCALADORA</h2><img src="/imagenes/zonas-cardio/escalonera.png" alt=""></div>
-    <div class="item"><h2>BICICLETAS</h2><img src="/imagenes/zonas-cardio/bicicletas.png" alt=""></div>
-    <div class="item"><h2>REMADORAS (MAQUINA DE REMO)</h2><img src="/imagenes/zonas-cardio/remadoras.png" alt=""></div>
+    <div class="item"><h2 class="uno">CAMINADORA</h2><img src="/backend/imagenes/zonas-cardio/caminadora.png" alt=""></div>
+    <div class="item"><h2>ESCALADORA</h2><img src="/backend/imagenes/zonas-cardio/escalonera.png" alt=""></div>
+    <div class="item"><h2>BICICLETAS</h2><img src="/backend/imagenes/zonas-cardio/bicicletas.png" alt=""></div>
+    <div class="item"><h2>REMADORAS (MAQUINA DE REMO)</h2><img src="/backend/imagenes/zonas-cardio/remadoras.png" alt=""></div>
    
    </div>
 <div class="img-contenedor2">
-<div class="item5"><h2>ESCALERAS INFINITAS</h2><img src="/imagenes/zonas-cardio/escalera.png" alt=""></div>
+<div class="item5"><h2>ESCALERAS INFINITAS</h2><img src="/backend/imagenes/zonas-cardio/escalera.png" alt=""></div>
 </div>
 
 <footer class="ultimo">

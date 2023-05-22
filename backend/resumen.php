@@ -41,18 +41,18 @@ $row=$result->fetch_assoc();
             <div class="menu container">
 
                 <a class="smart">SMART </a>
-                <img id="logo2" src="css/logo2.png" alt="">
+                <img id="logo2" src="/backend/css/logo2.png" alt="">
 
                 <a class="fit"> FIT</a>
                 <input type="checkbox" id="menu" />
                 <label for="menu">
-                    <img src="css/menu-icono.png" class="menu-icono" alt="">
+                    <img src="/backend/css/menu-icono.png" class="menu-icono" alt="">
                 </label>
 
                 <nav class="menuarriba">
                     <ul>
-                        <li><a class="sede" href="/sedes.html">SEDES</a></li>
-                        <li><a class="zona" href="/zonaentrenamiento.html">ZONAS DE ENTRENAMIENTO</a></li>
+                        <li><a class="sede" href="/backend/sedes.php">SEDES</a></li>
+                        <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
                         <li><a class="maquina" href="">MAQUINAS</a></li>
                         <li><a class="carrito" href="">CARRITO</a></li>
                         <li><a class="empieza" href=""><?php echo utf8_decode($nombre.' '.$apellido); ?></a></li>
@@ -64,7 +64,7 @@ $row=$result->fetch_assoc();
 
     <div class="palabra"><br>
         <br>
-        <h2>SMART <img style="width: 60px;" src="css/logo2.png" alt="logo2"> <a> FIT </a></h2>
+        <h2>SMART <img style="width: 60px;" src="/backend/css/logo2.png" alt="logo2"> <a> FIT </a></h2>
         <h2>PRES DE<a>BANCA</a></h2>
         <br>
         <br>
@@ -75,7 +75,7 @@ $row=$result->fetch_assoc();
         <div class="img-contenedor">
             <div class="item">
 
-                <img class="img-res" src="imagenes/img-resumen/resumen.jpg" alt="">
+                <img class="img-res" src="/backend/imagenes/img-resumen/resumen.jpg" alt="">
             </div>
         </div>
     </div>

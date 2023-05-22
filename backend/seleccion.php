@@ -42,7 +42,7 @@ $row=$result->fetch_assoc();
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-xl fixed-top" id="navbar">
         <div class="container">
-          <a class="navbar-brand" href="#" id="logo">SMART <img src="css/logo2.png"><span>FIT</span></a>
+          <a class="navbar-brand" href="#" id="logo">SMART <img src="/backend/css/logo2.png"><span>FIT</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span><i class="fa-solid fa-bars"></i></span>
           </button>
@@ -82,7 +82,7 @@ $row=$result->fetch_assoc();
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="imagenes/imgreserva/fondogym2.png" alt="First slide">
+            <img class="d-block w-100" src="/backend/imagenes/imgreserva/fondogym2.png" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
               <h5 class="align-middle">Reserva tus maquinas y disfruta de la mejor experiencia</h5>
             </div>

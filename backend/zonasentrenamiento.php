@@ -41,12 +41,12 @@ $row=$result->fetch_assoc();
         <div class="menu container">
     
         <a  class="smart">SMART </a>
-        <img id="logo2" src="css/logo2.png" alt="">
+        <img id="logo2" src="/backend/css/logo2.png" alt="">
 
         <a  class="fit"> FIT</a>
         <input type="checkbox" id="menu"/>
         <label for="menu">
-           <img src="css/menu-icono.png" class="menu-icono" alt=""> 
+           <img src="/backend/css/menu-icono.png" class="menu-icono" alt=""> 
         </label>
 
         <nav class="menuarriba">
@@ -70,7 +70,7 @@ $row=$result->fetch_assoc();
    
  <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu zona de entrenamiento">
 
- <button id="btn" class="btn"><img src="/imagenes/imgsedes/lupa.png" alt=""></button>
+ <button id="btn" class="btn"><img src="/backend/imagenes/imgsedes/lupa.png" alt=""></button>
  </div>
 
 
@@ -81,9 +81,9 @@ $row=$result->fetch_assoc();
 
    <div class="img-contenedor">
 
-    <div class="item"><img src="/imagenes/zonas-entrenamiento/cardio.png" alt=""></div>
-    <div class="item"><img src="/imagenes/zonas-entrenamiento/funcional.png" alt=""></div>
-    <div class="item"><img src="/imagenes/zonas-entrenamiento/fuerza.jpg" alt=""></div>
+    <div class="item"><img src="/backend/imagenes/zonas-entrenamiento/cardio.png" alt=""></div>
+    <div class="item"><img src="/backend/imagenes/zonas-entrenamiento/funcional.png" alt=""></div>
+    <div class="item"><img src="/backend/imagenes/zonas-entrenamiento/fuerza.jpg" alt=""></div>
 
    </div>
 
