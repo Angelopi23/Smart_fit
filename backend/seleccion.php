@@ -63,7 +63,7 @@ $resultSede = $conexion->query($querySede);
                 <a class="nav-link" href="/backend/login/login.php">RESERVAR</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link me-3" href="#">CARRITO</a>
+                <a class="nav-link me-3" href="/backend/carrito.php">CARRITO</a>
               </li>
               <li class="nav-item">
                 <div class="dropdown">

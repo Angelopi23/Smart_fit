@@ -19,6 +19,22 @@ $result=$conexion->query($mostrar);
 $row=$result->fetch_assoc();
 
 
+if (isset($_POST['sedes'])) {
+    $sedeSeleccionada = $_POST['sedes'];
+    
+    // Aquí puedes realizar las operaciones necesarias para guardar la sede en la tabla carrito
+    // Por ejemplo, construir y ejecutar una consulta de inserción
+    
+    // Ejemplo de consulta de inserción
+    $consulta = "INSERT INTO carrito (sedes) VALUES ('$sedeSeleccionada')";
+    $resultado = mysqli_query($conexion, $consulta);
+    
+    if ($resultado) {
+      echo "Sede agregada al carrito exitosamente";
+    } else {
+      echo "Error al agregar la sede al carrito";
+    }
+  }
 ?>
 
 
@@ -54,7 +70,7 @@ $row=$result->fetch_assoc();
             <li><a class="sede" href="">SEDES</a></li>
             <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
             <li><a class="reservar" href="">RESERVAR</a></li>
-            <li><a class="carrito" href="">CARRITO</a></li>
+            <li><a class="carrito" href="/backend/carrito.php">CARRITO</a></li>
           <li><a class="empieza" href=""><?php echo utf8_decode($nombre.' '.$apellido); ?></a></li>
         </ul>
     </nav>
@@ -81,17 +97,27 @@ $row=$result->fetch_assoc();
 
    <div class="centro">
 
+   <form id="carritoForm" method="post" action="/backend/carrito.php">
     <div class="img-contenedor">
+    
 
-        <a class="item" ><img src="/backend/imagenes/imgsedes/openplazahuancayo.png" alt=""> </a>
-        <a class="item" ><img src="/backend/imagenes/imgsedes/realplazahuancayo.png" alt=""> </a>
-        <a class="item" ><img src="/backend/imagenes/imgsedes/fontana.png" alt=""> </a>
-        <a class="item" ><img src="/backend/imagenes/imgsedes/mallSantaAnita.png" alt=""> </a>
-        <a class="item" ><img src="/backend/imagenes/imgsedes/RealPlazaPuruchuco.png" alt=""> </a>
-        <a class="item" ><img src="/backend/imagenes/imgsedes/AlamedaPlazaSJL.png" alt=""> </a>
+        <a class="item" onclick="redirigir('realplazahuancayo')" > <img src="/backend/imagenes/imgsedes/realplazahuancayo.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="realplazahuancayo">
+        <a class="item" onclick="redirigir('openplazahuancayo')" > <img src="/backend/imagenes/imgsedes/openplazahuancayo.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="openplazahuancayo">
+        <a class="item" onclick="redirigir('fontana')" > <img src="/backend/imagenes/imgsedes/fontana.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="fontana">
+        <a class="item" onclick="redirigir('mallSantaAnita')" > <img src="/backend/imagenes/imgsedes/mallSantaAnita.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="mallSantaAnita">
+        <a class="item" onclick="redirigir('RealPlazaPuruchuco')" > <img src="/backend/imagenes/imgsedes/RealPlazaPuruchuco.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="RealPlazaPuruchuco">
+        <a class="item" onclick="redirigir('AlamedaPlazaSJL')" > <img src="/backend/imagenes/imgsedes/AlamedaPlazaSJL.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="AlamedaPlazaSJL">
+    
     </div>
+   
 
-
+    </form>
 
     <div class="imgderecha">
             <img src="/backend/imagenes/imgsedes/imgderecha.png" alt="">
@@ -107,7 +133,12 @@ $row=$result->fetch_assoc();
 </footer>
       
 
-
+<script>
+function redirigir(sede) {
+  // Cambiar la ubicación de la ventana del navegador a zonasentrenamiento.php con el parámetro 'sede'
+  window.location.href = '/backend/zonasentrenamiento.php?sede=' + sede;
+}
+</script>
 </body>
 </html>
 

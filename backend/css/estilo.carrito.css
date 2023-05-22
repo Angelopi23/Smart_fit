@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+body{
+	background: black;
+}
+
+#navbar{
+    background: black;
+}
+
+#logo{
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#logo span{
+    color: #ffa500;
+}
+
+#logo img{
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-toggler span{
+    color: white;
+}
+
+.navbar-nav{
+    margin-left: 20px;
+}
+
+.nav-item .nav-link{
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+    margin: 0px 5px;
+}
+
+.nav-item .nav-link:hover{
+    color: #ffa500;
+}
+
+.navbar .dropdown button{
+    background: #ffa500;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+}
+
+.navbar .dropdown .dropdown-menu{
+    background: black;
+    border: none;
+}
+
+/*medio*/
+
+.superior{
+    padding-left: 80px;
+    padding-top: 100px;
+    color: white;
+}
+/*tabla*/
+.left{
+   
+    transform: translate(10%, 10%);
+    background: white;
+    border: solid 3px;
+    
+}
+
+
+
+table{
+  
+    font-size: 20px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+thead{
+ 
+    background: #BFC7D3;
+}
+
+th{
+  
+    padding: 10px 15px;
+    text-transform: uppercase;
+   
+}
+
+td{
+    padding: 15px;
+    border-bottom: solid 1px;
+}
+
+tbody tr:hover{
+    background: #BFC7D3;
+}
+
+.card {
+  
+    max-width: 70%;
+   color: black;
+}
+
+
+/*boton imprimir*/
+.left  .boton{
+    
+        width: 40%; 
+        background:#ffa500;
+        border-radius: 6px;
+        padding: 12px;
+        color: black;
+        margin: 10px auto;
+        font-size: 16px;
+       font-weight: bold;
+       cursor: pointer; /*para que aparesca el simbolo de la manito*/
+       transition: .10s;
+       margin-right: 20px;
+       width: 100%;
+       font-size: 18px;
+       font-weight: 700;
+       margin: 10px 0;
+       color: black;
+
+       
+}
+
+.left .boton{
+    width: 100%;
+    text-align: center;
+    
+}
+
+
+/*efecto del boton */
+.left .boton:active{
+    transform: scale(0.9);
+}
+
+
+
+
+.left{
+    padding-left: 10px;
+    display: flex;
+    float: left;
+    padding-top: 10px;
+    position: absolute;
+}
+
+
+/*edicion de la img derecha*/
+
+.img-derecha{
+    display: flex;
+    float: right;
+   padding-top: 10px;
+   padding-right: 10px;
+  
+}
+
+.card-img{
+    width: 50%;
+} 
+
+.footer{
+    padding-top:450px;
+   text-align: center;
+   color:#ffa500;
+}
+
+.footer h3 span{
+    color: white;
+}
+
+
+
+
+
+
+
+/*aplicando responsive*/
+@media only screen and (max-width:820px){
+.img-derecha{
+    display: none;
+}
+
+}
