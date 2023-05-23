@@ -19,6 +19,8 @@ $result=$conexion->query($mostrar);
 $row=$result->fetch_assoc();
 
 
+
+/*
 if (isset($_POST['sedes'])) {
     $sedeSeleccionada = $_POST['sedes'];
     
@@ -26,7 +28,7 @@ if (isset($_POST['sedes'])) {
     // Por ejemplo, construir y ejecutar una consulta de inserción
     
     // Ejemplo de consulta de inserción
-    $consulta = "INSERT INTO carrito (sedes) VALUES ('$sedeSeleccionada')";
+    $consulta = "INSERT INTO seleccion (sedes) VALUES ('$sedeSeleccionada')";
     $resultado = mysqli_query($conexion, $consulta);
     
     if ($resultado) {
@@ -34,7 +36,7 @@ if (isset($_POST['sedes'])) {
     } else {
       echo "Error al agregar la sede al carrito";
     }
-  }
+  }*/
 ?>
 
 
@@ -92,17 +94,22 @@ if (isset($_POST['sedes'])) {
 
 </div>
 
-
+<?php $busqueda=mysqli_query($conexion,"SELECT * FROM sedes"); 
+      $numero=mysqli_num_rows($busqueda);
+    ?>
+      <h5 class="result"> RESULTADOS (<?php echo $numero?>)</h5>
 
 
    <div class="centro">
+        
 
    <form id="carritoForm" method="post" action="/backend/carrito.php">
     <div class="img-contenedor">
-    
-
+    <?php while ($resultado=mysqli_fetch_row($busqueda)){ ?>
+   
         <a class="item" onclick="redirigir('realplazahuancayo')" > <img src="/backend/imagenes/imgsedes/realplazahuancayo.png" alt=""> </a>
-        <input type="hidden" name="sedes" value="realplazahuancayo">
+        <input type="hidden" name="id" id="id" value="realplazahuancayo">
+        <input type="hidden" name="sede" id="sede" value="realplazahuancayo">
         <a class="item" onclick="redirigir('openplazahuancayo')" > <img src="/backend/imagenes/imgsedes/openplazahuancayo.png" alt=""> </a>
         <input type="hidden" name="sedes" value="openplazahuancayo">
         <a class="item" onclick="redirigir('fontana')" > <img src="/backend/imagenes/imgsedes/fontana.png" alt=""> </a>
@@ -114,6 +121,7 @@ if (isset($_POST['sedes'])) {
         <a class="item" onclick="redirigir('AlamedaPlazaSJL')" > <img src="/backend/imagenes/imgsedes/AlamedaPlazaSJL.png" alt=""> </a>
         <input type="hidden" name="sedes" value="AlamedaPlazaSJL">
     
+      <?php } ?>
     </div>
    
 
@@ -122,7 +130,7 @@ if (isset($_POST['sedes'])) {
     <div class="imgderecha">
             <img src="/backend/imagenes/imgsedes/imgderecha.png" alt="">
        </div>
-    </div>
+  </div>
 
 
 
