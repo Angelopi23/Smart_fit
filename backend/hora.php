@@ -100,8 +100,14 @@ $resultSede = $conexion->query($querySede);
 
     <section class="seccion container-md">
 
-        <div class="row pt-3 pb-3">
-          <h3>Reserva <span>por:</span></h3>
+        <div class="row pt-3 pb-3 tit-maq text-center">
+          <h3 class="fs-2">PRES DE <span>BANCA</span></h3>
+        </div>
+
+        <div class="row">
+            <div class="text-center">
+                <img class="w-50 mb-4" src="imagenes/imgreserva/segunda2.png" alt="" srcset="">
+            </div>
         </div>
   
         <div class="row">
@@ -279,7 +285,7 @@ $resultSede = $conexion->query($querySede);
   
           <div class="col-sm-12 col-xl-2">
             <div class="filtro">
-              <a class="btn botonfil pt-4 pb-4" href="/backend/hora.php">Filtrar <i class="fa-solid fa-magnifying-glass"></i></a>
+              <a class="btn botonfil pt-4 pb-4" href="#">Filtrar <i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
           </div>
   
@@ -288,27 +294,42 @@ $resultSede = $conexion->query($querySede);
         </div>
 
 
+        <div class="row pt-3 pb-2">
+            <h3>Reserva <span>la hora:</span></h3>
+        </div>
 
 
-        <div class="row mt-4">
-            <div class="col-lg-6">
-              <img class="w-100 mb-3" src="imagenes/imgreserva/primera-1.png" alt="" srcset="">
-              <img class="w-100 mb-3" src="imagenes/imgreserva/primera-2.png" alt="" srcset="">
-              <img class="w-100 mb-3" src="imagenes/imgreserva/primera3.png" alt="" srcset="">
+
+
+        <div class="row turno">
+            <h3 class="fs-4 mb-3">Turno mañana:</h3>
+            <div class="btn-group col-6 col-sm-6 col-md-4 col-lg-3 mb-5">
+                <button type="button" class="btn bg-white back fs-2" style="font-weight: 800;">7:30 am</button>
+                <img src="css/logo2.png" class="w-25">
             </div>
-            <div class="col-lg-6">
-              <img class="w-100 mb-3" src="imagenes/imgreserva/segunda-1.png" alt="" srcset="">
-              <img class="w-100 mb-3" src="imagenes/imgreserva/segunda2.png" alt="" srcset="">
-              <div class="row">
-                <div class="col-6">
-                  <img class="w-100" style="height: 86.8%;" src="imagenes/imgreserva/segunda-3-1.png" alt="" srcset="">
-                </div>
-                <div class="col-6">
-                  <img class="w-100 " style="height: 86.8%;" src="imagenes/imgreserva/segunda-3-2.png" alt="" srcset="">
-                </div>
-              </div>
+            <div class="btn-group col-6 col-sm-6 col-md-4 col-lg-3 mb-5">
+                <button type="button" class="btn bg-white back fs-2" style="font-weight: 800;">11:00 am</button>
+                <img src="css/logo2.png" class="w-25">
             </div>
-          </div>
+        </div>
+
+        <div class="row turno">
+            <h3 class="fs-4 mb-3">Turno tarde:</h3>
+            <div class="btn-group col-6 col-sm-6 col-md-4 col-lg-3 mb-5">
+                <button type="button" class="btn bg-white back fs-2" style="font-weight: 800;">3:00 pm</button>
+                <img src="css/logo2.png" class="w-25">
+            </div>
+            <div class="btn-group col-6 col-sm-6 col-md-4 col-lg-3 mb-5">
+                <button type="button" class="btn bg-white back fs-2" style="font-weight: 800;">5:30 pm</button>
+                <img src="css/logo2.png" class="w-25">
+            </div>
+            <div class="btn-group col-6 col-sm-6 col-md-4 col-lg-3 mb-5">
+                <button type="button" class="btn bg-white back fs-2" style="font-weight: 800;">6:00 pm</button>
+                <img src="css/logo2.png" class="w-25">
+            </div>
+            
+        </div>
+
     
           <div class="row mb-5 text-center">
             <h3>¡Saca tu <span>mejor forma!</span></h3>
