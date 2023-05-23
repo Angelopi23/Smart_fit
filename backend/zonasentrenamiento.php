@@ -81,9 +81,9 @@ $row=$result->fetch_assoc();
 
    <div class="img-contenedor">
 
-    <div class="item"><img src="/backend/imagenes/zonas-entrenamiento/cardio.png" alt=""></div>
-    <div class="item"><img src="/backend/imagenes/zonas-entrenamiento/funcional.png" alt=""></div>
-    <div class="item"><img src="/backend/imagenes/zonas-entrenamiento/fuerza.jpg" alt=""></div>
+    <div class="item" onclick="redirigirC('zona-cardio')"><img src="/backend/imagenes/zonas-entrenamiento/cardio.png" alt=""></div>
+    <div class="item" onclick="redirigirF('zona-funcional')"><img src="/backend/imagenes/zonas-entrenamiento/funcional.png" alt=""></div>
+    <div class="item" onclick="redirigirFU('zona-fuerza')"><img src="/backend/imagenes/zonas-entrenamiento/fuerza.jpg" alt=""></div>
 
    </div>
 
@@ -93,6 +93,8 @@ $row=$result->fetch_assoc();
     <h2><a> ¡Saca tu </a> mejor forma!</h2>
 
 </footer>
+
+<script src="/backend/JS/zonasentrenamiento.js"></script>
 
 </body>
 </html>

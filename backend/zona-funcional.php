@@ -88,10 +88,10 @@ $row=$result->fetch_assoc();
 
 
           <div class="img-contenedor">
-            <div class="item"><h2 class="uno">RACK FUNCIONAL</h2><br> <img src="/backend/imagenes/zonas-funcional/RACK_FUNCIONAL(2).jpg" alt=""></div>
-            <div class="item"><h2>BOLSAS DE SALM</h2><img src="/backend/imagenes/zonas-funcional/bolsas_de_salm.png" alt=""></div>
-            <div class="item"><h2>BARRAS OLIMPICAS</h2><img src="/backend/imagenes/zonas-funcional/barra_olimpica.png" alt=""></div>
-            <div class="item"><h2>KETTLEBELLS</h2><img src="/backend/imagenes/zonas-funcional/kettlebells.png" alt=""></div>
+            <div class="item" onclick="redirigirFUNCIONAL('RACK')"><h2 class="uno">RACK FUNCIONAL</h2><br> <img src="/backend/imagenes/zonas-funcional/RACK_FUNCIONAL(2).jpg" alt=""></div>
+            <div class="item" onclick="redirigirFUNCIONAL('BOLSAS')"><h2>BOLSAS DE SALM</h2><img src="/backend/imagenes/zonas-funcional/bolsas_de_salm.png" alt=""></div>
+            <div class="item" onclick="redirigirFUNCIONAL('BARRAS')"><h2>BARRAS OLIMPICAS</h2><img src="/backend/imagenes/zonas-funcional/barra_olimpica.png" alt=""></div>
+            <div class="item" onclick="redirigirFUNCIONAL('KETTBELLS')"><h2>KETTLEBELLS</h2><img src="/backend/imagenes/zonas-funcional/kettlebells.png" alt=""></div>
             
           </div>
 
@@ -105,6 +105,11 @@ $row=$result->fetch_assoc();
             <h2><a> ¡Saca tu </a> mejor forma!</h2>
         
         </footer>
-
+        <script>
+        function redirigirFUNCIONAL(maquinas) {
+  
+  window.location.href = '/backend/seleccion.php?maquinas=' + maquinas;
+}
+</script>
 </body>
 </html>

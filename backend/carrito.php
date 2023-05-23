@@ -18,8 +18,25 @@ $mostrar="SELECT*FROM usuario
 $result=$conexion->query($mostrar);
 
 $row=$result->fetch_assoc();
-var_dump($_POST['sede']);
 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['sedes'])) {
+      $sedeSeleccionada = $_POST['sedes']; // Obtener la sede seleccionada del formulario
+
+      // Aquí puedes realizar las operaciones necesarias para guardar la sede en la tabla "sedes"
+      // Por ejemplo, construir y ejecutar una consulta de inserción
+
+      $consulta = "INSERT INTO sedes (usuario, sede) VALUES ('$idUser', '$sedeSeleccionada')";
+      $resultado = mysqli_query($conexion, $consulta);
+
+      if ($resultado) {
+          $mensaje = "Sede agregada al carrito exitosamente";
+      } else {
+          $mensaje = "Error al agregar la sede al carrito";
+      }
+  }
+}
 ?>
 
 
@@ -65,7 +82,7 @@ var_dump($_POST['sede']);
               <li class="nav-item">
                 <div class="dropdown">
                   <button type="button" class="dropdown-toggle btn" data-bs-toggle="dropdown">
-                  ANGELO PIZARRO                  </button>
+                  <?php echo utf8_decode($nombre.' '.$apellido); ?>   </button>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Perfil</a></li>
                     <li><hr class="dropdown-divider"></hr></li>
@@ -99,35 +116,62 @@ var_dump($_POST['sede']);
             </tr>
         </thead>
         <tbody>
+        <?php
+    $sedeSeleccionada = $_SESSION['sedeSeleccionada']; // Obtener la sede seleccionada de la variable de sesión
 
+    // Aquí puedes realizar las operaciones necesarias para obtener los datos de la sede, la zona, la máquina, el turno, la hora, etc.
+    // Puedes construir y ejecutar una consulta SQL para obtener los datos correspondientes a la sede seleccionada
+
+    // Ejemplo de consulta SQL
+    $conexion = mysqli_connect('localhost', 'root', '', 'smart_fit');
+    $consulta = "SELECT * FROM carrito WHERE id = '$sedeSeleccionada'";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    if ($resultado) {
+        $numero = 1; // Variable para enumerar las filas
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $id = $fila['id'];
+            $usuario = $fila['usuario'];
+            $zona = $fila['zona'];
+            $maquina = $fila['maquina'];
+            $turno = $fila['turno'];
+            $hora = $fila['hora'];
+            ?>
+                   <tr>
+                <td><?php echo $numero; ?></td>
+                <td> <?php echo utf8_decode($nombre); ?>  </td>
+                <td><?php echo ($sedeSeleccionada); ?></td>
+                <td><?php echo $zona; ?></td>
+                <td><?php echo $maquina; ?></td>
+                <td><?php echo $turno; ?></td>
+                <td><?php echo $hora; ?></td>
+                <td>Acciones</td>
+            </tr>
+            <?php
+            $numero++;
+        }
+    } else {
+        // Si no hay resultados, puedes mostrar una fila con un mensaje indicando que no se encontraron datos
+        ?>
+        <tr>
+            <td colspan="8">No se encontraron datos</td>
+        </tr>
+        <?php
+    }
+    ?>
             <tr>
-                <td> id </td>
+                <td> N° </td>
                 <td> usuario</td>
                 <td> sede</td>
                 <td> zona</td>
                 <td> maquina</td>
                 <td> turno</td>
                 <td> hora</td>
+                </tr>
 
-            <?php
-            // Aquí deberías obtener los datos de tu base de datos o de donde sea que los almacenes
-            // y luego iterar sobre ellos para mostrar cada fila de la tabla
-         
-            /*
-            foreach ($datos as $fila) {
-                echo "<tr>";
-                echo "<td>" . $fila['id'] . "</td>";
-                echo "<td>" . $fila['usuario'] . "</td>";
-                echo "<td>" . $fila['sede'] . "</td>";
-                echo "<td>" . $fila['zona'] . "</td>";
-                echo "<td>" . $fila['maquina'] . "</td>";
-                echo "<td>" . $fila['turno'] . "</td>";
-                echo "<td>" . $fila['hora'] . "</td>";
-                echo "<td><a href='#'>Editar</a> | <a href='#'>Eliminar</a></td>";
-                echo "</tr>";
-            }*/
-            ?>
-            </tr>
+    
+       
+           
         </tbody>
     </table>
 

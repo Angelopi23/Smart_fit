@@ -81,12 +81,12 @@ $row=$result->fetch_assoc();
         </div>
 
         <div class="img-contenedor">
-            <div class="item"><h2 class="uno">HACK SQUAT</h2><br> <img src="/backend/imagenes/zonas-fuerza/HACK__SQUAT.png" alt=""></div>
-            <div class="item"><h2>EMPUJE DE CADERA</h2><img src="/backend/imagenes/zonas-fuerza/EMPUJE_DE_CADEA.png" alt=""></div>
-            <div class="item"><h2>JERSEY</h2><img src="/backend/imagenes/zonas-fuerza/JERSEY.png" alt=""></div>
-            <div class="item"><h2>PRES DE BANCA</h2><img src="/backend/imagenes/zonas-fuerza/PRES_DE_BANCA.png" alt=""></div>
-            <div class="item"><h2>PRENSA</h2><img src="/backend/imagenes/zonas-fuerza/PRENSA.png" alt=""></div>
-            <div class="item"><h2>REMO CON BARRA</h2><img src="/backend/imagenes/zonas-fuerza/REMO_CON_BARRA.png" alt=""></div>
+            <div class="item" onclick="redirigirFUERZA('HACK')"><h2 class="uno">HACK SQUAT</h2><br> <img src="/backend/imagenes/zonas-fuerza/HACK__SQUAT.png" alt=""></div>
+            <div class="item" onclick="redirigirFUERZA('EMPUJE')"><h2>EMPUJE DE CADERA</h2><img src="/backend/imagenes/zonas-fuerza/EMPUJE_DE_CADEA.png" alt=""></div>
+            <div class="item" onclick="redirigirFUERZA('JERSEY')"><h2>JERSEY</h2><img src="/backend/imagenes/zonas-fuerza/JERSEY.png" alt=""></div>
+            <div class="item" onclick="redirigirFUERZA('PRES_BANCA')"><h2>PRES DE BANCA</h2><img src="/backend/imagenes/zonas-fuerza/PRES_DE_BANCA.png" alt=""></div>
+            <div class="item" onclick="redirigirFUERZA('PRENSA')"><h2>PRENSA</h2><img src="/backend/imagenes/zonas-fuerza/PRENSA.png" alt=""></div>
+            <div class="item" onclick="redirigirFUERZA('REMO')"><h2>REMO CON BARRA</h2><img src="/backend/imagenes/zonas-fuerza/REMO_CON_BARRA.png" alt=""></div>
           </div>
 
 
@@ -96,6 +96,11 @@ $row=$result->fetch_assoc();
         
         </footer>
         
-
+        <script>
+function redirigirFUERZA(maquinas) {
+  
+  window.location.href = '/backend/seleccion.php?maquinas=' + maquinas;
+}
+</script>
 </body>
 </html>

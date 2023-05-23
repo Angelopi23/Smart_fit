@@ -176,6 +176,10 @@ color: #fcb823;
 
 
                                                                 /*centro*/
+.result{
+    color: #fcb823;
+    text-align: center;
+}
 
 .centro{
  display: grid;

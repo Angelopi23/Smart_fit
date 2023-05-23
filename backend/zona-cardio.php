@@ -96,14 +96,14 @@ $row=$result->fetch_assoc();
 
    <div class="img-contenedor">
 
-    <div class="item"><h2 class="uno">CAMINADORA</h2><img src="/backend/imagenes/zonas-cardio/caminadora.png" alt=""></div>
-    <div class="item"><h2>ESCALADORA</h2><img src="/backend/imagenes/zonas-cardio/escalonera.png" alt=""></div>
-    <div class="item"><h2>BICICLETAS</h2><img src="/backend/imagenes/zonas-cardio/bicicletas.png" alt=""></div>
-    <div class="item"><h2>REMADORAS (MAQUINA DE REMO)</h2><img src="/backend/imagenes/zonas-cardio/remadoras.png" alt=""></div>
+    <div class="item" onclick="redirigirCARDIO('caminadora')"><h2 class="uno">CAMINADORA</h2><img src="/backend/imagenes/zonas-cardio/caminadora.png" alt=""></div>
+    <div class="item"onclick="redirigirCARDIO('escalonera')"><h2>ESCALADORA</h2><img src="/backend/imagenes/zonas-cardio/escalonera.png" alt=""></div>
+    <div class="item" onclick="redirigirCARDIO('bicicletas')"><h2>BICICLETAS</h2><img src="/backend/imagenes/zonas-cardio/bicicletas.png" alt=""></div>
+    <div class="item" onclick="redirigirCARDIO('remadora')"><h2>REMADORAS (MAQUINA DE REMO)</h2><img src="/backend/imagenes/zonas-cardio/remadoras.png" alt=""></div>
    
    </div>
 <div class="img-contenedor2">
-<div class="item5"><h2>ESCALERAS INFINITAS</h2><img src="/backend/imagenes/zonas-cardio/escalera.png" alt=""></div>
+<div class="item5" onclick="redirigirCARDIO('escalera')"><h2>ESCALERAS INFINITAS</h2><img src="/backend/imagenes/zonas-cardio/escalera.png" alt=""></div>
 </div>
 
 <footer class="ultimo">
@@ -112,5 +112,11 @@ $row=$result->fetch_assoc();
 
 </footer>
 
+<script>
+function redirigirCARDIO(maquinas) {
+ 
+  window.location.href = '/backend/seleccion.php?maquinas=' + maquinas;
+}
+</script>
 </body>
 </html>
