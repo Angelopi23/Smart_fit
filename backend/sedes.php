@@ -69,7 +69,7 @@ if (isset($_POST['sedes'])) {
         <ul>
             <li><a class="sede" href="">SEDES</a></li>
             <li><a class="zona" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a></li>
-            <li><a class="reservar" href="">RESERVAR</a></li>
+            <li><a class="reservar" href="/backend/seleccion.php">RESERVAR</a></li>
             <li><a class="carrito" href="/backend/carrito.php">CARRITO</a></li>
           <li><a class="empieza" href=""><?php echo utf8_decode($nombre.' '.$apellido); ?></a></li>
         </ul>

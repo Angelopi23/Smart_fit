@@ -319,3 +319,22 @@ body{
 	letter-spacing: 1px;
 	font-weight: 700;
 }
+
+
+.tit-maq h3{
+	color: #fff;
+	letter-spacing: 1px;
+	font-weight: 700;
+}
+
+.tit-maq span{
+    color: #ffa500;
+	letter-spacing: 1px;
+	font-weight: 700;
+}
+
+.turno h3{
+	color: #fff;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
