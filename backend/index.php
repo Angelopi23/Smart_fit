@@ -84,9 +84,9 @@ $row=$result->fetch_assoc();
 <div class="menuabajo">
     <ul>
         <li><a class="cardio" href="/backend/zona-cardio.php">Cardio</a></li>
-        <li><a class="funcional" href="">Funcional</a></li>
+        <li><a class="funcional" href="/backend/zona-funcional.php">Funcional</a></li>
         <li><a class="pesolibre" href="">Peso libre</a></li>
-        <li><a class="fuerza" href="">Fuerza</a></li>
+        <li><a class="fuerza" href="/backend/zona-fuerza.php">Fuerza</a></li>
         <li><a class="estiramiento" href="">Estiramiento</a></li>
     </ul>
 </div>
