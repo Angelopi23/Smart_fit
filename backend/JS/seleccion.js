@@ -47,11 +47,15 @@ selectzona.addEventListener('click', () => {
 
 const selectmaq = document.querySelector('#selectmaq');
 const opcionesmaq = document.querySelector('#opcionesmaq');
+const opcionmaq = document.querySelector('#opcionmaq');
 const contenidoSelectmaq = document.querySelector('#contselectmaq .descripcionmaq');
+const contenidoOptionmaq = document.querySelector('#contoptionmaq .descripcionmaq');
 const hiddenInputmaq = document.querySelector('#inputSelectmaq');
 
-document.querySelectorAll('#opcionesmaq > .opcionmaq').forEach((opcion) => {
-	opcion.addEventListener('click', (e) => {
+/*
+document.querySelectorAll('#opcionesmaq > .opcionmaq').forEach(opcion => {
+	console.log('jul');
+	opcion.addEventListener('click', e => {
 		e.preventDefault();
 		contenidoSelectmaq.innerHTML = e.currentTarget.innerHTML;
 		selectmaq.classList.toggle('active');
@@ -59,6 +63,13 @@ document.querySelectorAll('#opcionesmaq > .opcionmaq').forEach((opcion) => {
 		hiddenInputmaq.value = e.currentTarget.querySelector('.titulomaq').innerText;
 	});
 });
+*/
+function seleccionarMaq(event){
+	const contenidoOptionmaq = event.target.innerHTML;
+	contenidoSelectmaq.innerHTML = contenidoOptionmaq;
+	selectmaq.classList.toggle('active');
+	opcionesmaq.classList.toggle('active');
+};
 
 selectmaq.addEventListener('click', () => {
 	selectmaq.classList.toggle('active');
