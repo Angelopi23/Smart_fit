@@ -22,7 +22,8 @@ $row=$result->fetch_assoc();
 $querySede = "SELECT id, sede FROM sedes ORDER BY sede ASC";
 $resultSede = $conexion->query($querySede);
 
-
+$queryfechas= "SELECT id, fecha FROM fechas ORDER BY fecha ASC";
+$resultfechas = $conexion->query($queryfechas);
 ?>
 
 
@@ -117,6 +118,7 @@ $resultSede = $conexion->query($querySede);
                 </div>
   
   
+
                 <div class="opciones" id="opciones">
                   <?php while($rowSede = $resultSede->fetch_assoc()) {?>
                     <a href="#" class="opcion">
@@ -128,7 +130,8 @@ $resultSede = $conexion->query($querySede);
                     </a>
                   <?php } ?>
                 </div>
-        
+
+
               </div>
         
               <input type="hidden" name="sede" id="inputSelect" value="">
@@ -136,108 +139,80 @@ $resultSede = $conexion->query($querySede);
           </div>
   
   
-  
-          <div class="col-sm-6 col-xl">
-            <form action="">
-              <div class="selectboxzona col">
-                <div class="selectzona " id="selectzona">
-                  <div class="contenido-selectzona" id="contselectzona">
-                    <h1 class="titulozona">Por zona</h1>
-                    <p class="descripcionzona">Elige tu zona</p>
-                  </div>
-                  <i class="fas fa-angle-down"></i>
-                </div>
-  
-  
-                <div class="opcioneszona" id="opcioneszona">
-                  <a href="#" class="opcionzona">
-                    <div class="contenido-opcionzona">
-                      <div class="textoszona">
-                        <p class="descripcionzona">Zona de Fuerza</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="opcionzona">
-                    <div class="contenido-opcionzona">
-                      <div class="textoszona">
-                        <p class="descripcionzona">Zona Funcional</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="opcionzona">
-                    <div class="contenido-opcionzona">
-                      <div class="textoszona">
-                        <p class="descripcionzona">Zona de cardio</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-        
-              </div>
-        
-              <input type="hidden" name="zona" id="inputSelectzona" value="">
-            </form>
-          </div>
-  
-  
-  
-  
-  
-          <div class="col-sm-6 col-xl">
-            <form action="">
-              <div class="selectboxmaq col">
-                <div class="selectmaq " id="selectmaq">
-                  <div class="contenido-selectmaq" id="contselectmaq">
-                    <h1 class="titulomaq">Por máquina</h1>
-                    <p class="descripcionmaq">Elige tu máquina</p>
-                  </div>
-                  <i class="fas fa-angle-down"></i>
-                </div>
+                      <!--SELECCION DE ZONA-->
+
+<div class="col-sm-6 col-xl">
+  <form action="">
+    <div class="selectboxzona col">
+      <div class="selectzona" id="selectzona">
+        <div class="contenido-selectzona" id="contselectzona">
+          <h1 class="titulozona">Por zona</h1>
+          <p class="descripcionzona">Elige tu zona</p>
+        </div>
+        <i class="fas fa-angle-down"></i>
+      </div>
+
+      <div class="opcioneszona" id="opcioneszona">
+        <?php
+       
+// conexión a la base de datos
+$server = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'smart_fit';
+
+$conexion = mysqli_connect($server, $username, $password, $database);
+
+// consulta para obtener los datos de la tabla "zona_entrenamiento"
+$consulta = "SELECT * FROM zona_entrenamiento";
+$ejecutarConsulta = mysqli_query($conexion, $consulta);
+
+        // generar opciones para el menú desplegable
+        while ($fila = mysqli_fetch_array($ejecutarConsulta)) {
+          echo '<a href="#" class="opcionzona" onclick="cargarMaquinas(' . $fila['id'] . ')">';
+          echo '<div class="contenido-opcionzona">';
+          echo '<div class="textoszona">';
+          echo '<p class="descripcionzona">' . $fila['entrenamiento'] . '</p>';
+          echo '</div>';
+          echo '</div>';
+          echo '</a>';
+        }
+        ?>
+      </div>
+    </div>
+
+    <input type="hidden" name="zona" id="inputSelectzona" value="">
+  </form>
+</div>
   
   
-                <div class="opcionesmaq" id="opcionesmaq">
-                  <a href="#" class="opcionmaq">
-                    <div class="contenido-opcionmaq">
-                      <div class="textosmaq">
-                        <p class="descripcionmaq">Hack Squat</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="opcionmaq">
-                    <div class="contenido-opcionmaq">
-                      <div class="textosmaq">
-                        <p class="descripcionmaq">Empuje de Cadera</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="opcionmaq">
-                    <div class="contenido-opcionmaq">
-                      <div class="textosmaq">
-                        <p class="descripcionmaq">Jersey</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="opcionmaq">
-                    <div class="contenido-opcionmaq">
-                      <div class="textosmaq">
-                        <p class="descripcionmaq">Pres de Banca</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-        
-              </div>
-        
-              <input type="hidden" name="maq" id="inputSelectmaq" value="">
-            </form>
-          </div>
+                    <!--SELECCION DE MAQUINA-->
+                    
+  
+                    <div class="col-sm-6 col-xl" id="Smaquina">
+  <form action="">
+    <div class="selectboxmaq col">
+      <div class="selectmaq" id="selectmaq">
+        <div class="contenido-selectmaq" id="contselectmaq">
+          <h1 class="titulomaq">Por máquina</h1>
+          <p class="descripcionmaq">Elige tu máquina</p>
+        </div>
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <div class="opcionesmaq" id="opcionesmaq">
+        <!-- Aquí se cargarán dinámicamente las opciones de máquina -->
+      </div>
+    </div>
+    <input type="hidden" name="maq" id="inputSelectmaq" value="">
+  </form>
+</div>
   
   
   
   
   
   
-  
+                      <!--SELECCION DE FECHAS -->
   
           <div class="col-sm-6 col-xl">
             <form action="">
@@ -252,20 +227,15 @@ $resultSede = $conexion->query($querySede);
   
   
                 <div class="opcionesdia" id="opcionesdia">
+                <?php while($rowfechas = $resultfechas->fetch_assoc()) {?>
                   <a href="#" class="opciondia">
                     <div class="contenido-opciondia">
                       <div class="textosdia">
-                        <p class="descripciondia">19 de mayo</p>
+                        <p class="descripciondia" style="text-decoration: solid;"><?php echo $rowfechas['fecha'];?></p>
                       </div>
                     </div>
                   </a>
-                  <a href="#" class="opciondia">
-                    <div class="contenido-opciondia">
-                      <div class="textosdia">
-                        <p class="descripciondia">20 de mayo</p>
-                      </div>
-                    </div>
-                  </a>
+                  <?php } ?>
                 </div>
         
               </div>
@@ -318,6 +288,20 @@ $resultSede = $conexion->query($querySede);
 
     </section>
 
+
+    <script>
+  function cargarMaquinas(zonaId) {
+  // Realizar una petición AJAX para obtener las máquinas de la zona seleccionada
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+      document.getElementById("opcionesmaq").innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET", "configmaquina.php?zona=" + zonaId, true);
+  xmlhttp.send();
+}
+</script>
 
     <script src="/backend/JS/seleccion.js"></script>
     

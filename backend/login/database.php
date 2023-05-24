@@ -14,7 +14,6 @@ $conexion=mysqli_connect('localhost','root','','smart_fit');
 
 
 
-?>
 
 
 

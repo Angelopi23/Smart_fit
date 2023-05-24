@@ -20,50 +20,20 @@ $row=$result->fetch_assoc();
 
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (isset($_POST['sedes'])) {
-      $sedeSeleccionada = $_POST['sedes'];
-
-      // Aquí puedes realizar las operaciones necesarias para guardar la sede en la tabla carrito
-      // Por ejemplo, construir y ejecutar una consulta de inserción
-
-      $consulta = "";
-      $mensaje="";
-      switch ($sedeSeleccionada) {
-          case 'realplazahuancayo':
-              $consulta = "INSERT INTO seleccion (sedes) VALUES ('Real Plaza Huancayo')";
-              break;
-          case 'openplazahuancayo':
-              $consulta = "INSERT INTO seleccion (sedes) VALUES ('Open Plaza Huancayo')";
-              break;
-          case 'fontana':
-              $consulta = "INSERT INTO seleccion (sedes) VALUES ('La Fontana')";
-              break;
-          case 'mallSantaAnita':
-              $consulta = "INSERT INTO seleccion (sedes) VALUES ('Mall Aventura Santa Anita')";
-              break;
-          case 'RealPlazaPuruchuco':
-              $consulta = "INSERT INTO seleccion (sedes) VALUES ('Real Plaza Puruchuco')";
-              break;
-          case 'AlamedaPlazaSJL':
-              $consulta = "INSERT INTO seleccion (sedes) VALUES ('Alameda Plaza SJL')";
-              break;
-          default:
-              break;
-      }
-      if (!empty($consulta)) {
-        $stmt = $conexion->prepare($consulta);
-        if ($stmt) {
-            $stmt->execute();
-            $mensaje = "Sede agregada al carrito exitosamente";
-        } else {
-            $mensaje = "Error al agregar la sede al carrito";
-        }
-    } else {
-        $mensaje = "Sede inválida seleccionada";
-    }
-    
-    echo $mensaje;
+if (isset($_POST['sedes'])) {
+  $sedeSeleccionada = $_POST['sedes'];
+  
+  // Aquí puedes realizar las operaciones necesarias para guardar la sede en la tabla carrito
+  // Por ejemplo, construir y ejecutar una consulta de inserción
+  
+  // Ejemplo de consulta de inserción
+  $consulta = "INSERT INTO seleccion (sedes) VALUES ('$sedeSeleccionada')";
+  $resultado = mysqli_query($conexion, $consulta);
+  
+  if ($resultado) {
+      echo "Sede agregada al carrito exitosamente";
+  } else {
+      echo "Error al agregar la sede al carrito";
   }
 }
 ?>
@@ -134,12 +104,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
 
    <form id="carritoForm" method="post" action="/backend/carrito.php">
-
     <div class="img-contenedor">
-   
-    <a class="item" onclick="redirigir('realplazahuancayo')"> <img src="/backend/imagenes/imgsedes/realplazahuancayo.png" alt=""> </a>
-            <input type="hidden" name="sedes" value="realplazahuancayo">
-        <a class="item" onclick="redirigir('openplazahuancayo')" > <img src="/backend/imagenes/imgsedes/openplazahuancayo.png" alt=""> </a>
+    <a class="item" onclick="redirigir('realplazahuancayo')"> <img src="/backend/imagenes/imgsedes/realplazahuancayo.png" alt=""></a>
+        <input type="hidden" name="sedes" value="realplazahuancayo"> 
+        <a class="item" onclick="redirigir('openplazahuancayo')"><img src="/backend/imagenes/imgsedes/openplazahuancayo.png" alt=""></a>
         <input type="hidden" name="sedes" value="openplazahuancayo">
         <a class="item" onclick="redirigir('fontana')" > <img src="/backend/imagenes/imgsedes/fontana.png" alt=""> </a>
         <input type="hidden" name="sedes" value="fontana">

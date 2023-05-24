@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2023 a las 01:54:48
+-- Tiempo de generación: 24-05-2023 a las 06:25:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -45,13 +45,22 @@ INSERT INTO `carrito` (`id`, `sedes`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `fecha`
+-- Estructura de tabla para la tabla `fechas`
 --
 
-CREATE TABLE `fecha` (
+CREATE TABLE `fechas` (
   `id` int(11) NOT NULL,
-  `fechas` varchar(10) NOT NULL
+  `fecha` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `fechas`
+--
+
+INSERT INTO `fechas` (`id`, `fecha`) VALUES
+(1, '24 de mayo'),
+(2, '25 de mayo'),
+(3, '26 de mayo');
 
 -- --------------------------------------------------------
 
@@ -249,9 +258,9 @@ ALTER TABLE `carrito`
   ADD UNIQUE KEY `id_sedes` (`sedes`);
 
 --
--- Indices de la tabla `fecha`
+-- Indices de la tabla `fechas`
 --
-ALTER TABLE `fecha`
+ALTER TABLE `fechas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -310,10 +319,10 @@ ALTER TABLE `carrito`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `fecha`
+-- AUTO_INCREMENT de la tabla `fechas`
 --
-ALTER TABLE `fecha`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `fechas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `sedes`
@@ -371,8 +380,7 @@ ALTER TABLE `maquinas`
 -- Filtros para la tabla `seleccion`
 --
 ALTER TABLE `seleccion`
-  ADD CONSTRAINT `seleccion_ibfk_3` FOREIGN KEY (`id_zona_entrenamiento`) REFERENCES `zona_entrenamiento` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `seleccion_ibfk_6` FOREIGN KEY (`id_fecha`) REFERENCES `fecha` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `seleccion_ibfk_6` FOREIGN KEY (`id_fecha`) REFERENCES `fechas` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
