@@ -69,6 +69,20 @@ body{
     border: none;
 }
 
+.dropdown-menu .dropdown-item{
+    color: white;
+    background: none;
+}
+
+.dropdown-menu .dropdown-divider{
+    background: white;
+}
+
+.dropdown-menu .dropdown-item:hover{
+    color: #ffa500;
+    background: none;
+}
+
 /*medio*/
 
 .superior{

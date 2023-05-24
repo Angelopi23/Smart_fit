@@ -20,26 +20,22 @@ $result=$conexion->query($mostrar);
 $row=$result->fetch_assoc();
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (isset($_POST['sedes'])) {
-      $sedeSeleccionada = $_POST['sedes']; // Obtener la sede seleccionada del formulario
 
-      // Aquí puedes realizar las operaciones necesarias para guardar la sede en la tabla "sedes"
-      // Por ejemplo, construir y ejecutar una consulta de inserción
-
-      $consulta = "INSERT INTO sedes (usuario, sede) VALUES ('$idUser', '$sedeSeleccionada')";
-      $resultado = mysqli_query($conexion, $consulta);
-
-      if ($resultado) {
-          $mensaje = "Sede agregada al carrito exitosamente";
-      } else {
-          $mensaje = "Error al agregar la sede al carrito";
-      }
+if (isset($_POST['sedes'])) {
+  $sedeSeleccionada = $_POST['sedes'];
+  // Aquí puedes realizar las operaciones necesarias para guardar la sede en la tabla "carrito"
+  // Por ejemplo, construir y ejecutar una consulta de inserción
+  $consulta = "INSERT INTO carrito (sedes) VALUES ('$sedeSeleccionada')";
+  // Ejecutar la consulta
+  if (mysqli_query($conexion, $consulta)) {
+      echo "Sede agregada al carrito exitosamente";
+  } else {
+      echo "Error al agregar la sede al carrito: " . mysqli_error($conexion);
   }
+} else {
+  echo "Error: No se ha seleccionado ninguna sede";
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,7 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <thead>
             <tr>
                 <th>N°</th>
-                <th>Usuario</th>
                 <th>Sede</th>
                 <th>Zona</th>
                 <th>Máquina</th>
@@ -117,56 +112,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </thead>
         <tbody>
         <?php
-    $sedeSeleccionada = $_SESSION['sedeSeleccionada']; // Obtener la sede seleccionada de la variable de sesión
+                $sedeSeleccionada = isset($_POST['sedes']) ? $_POST['sedes'] : '';
 
-    // Aquí puedes realizar las operaciones necesarias para obtener los datos de la sede, la zona, la máquina, el turno, la hora, etc.
-    // Puedes construir y ejecutar una consulta SQL para obtener los datos correspondientes a la sede seleccionada
+                if (!empty($sedeSeleccionada)) {
+                    $consulta = "SELECT * FROM carrito WHERE id = '$sedeSeleccionada'";
+                    $resultado = mysqli_query($conexion, $consulta);
 
-    // Ejemplo de consulta SQL
-    $conexion = mysqli_connect('localhost', 'root', '', 'smart_fit');
-    $consulta = "SELECT * FROM carrito WHERE id = '$sedeSeleccionada'";
-    $resultado = mysqli_query($conexion, $consulta);
-
-    if ($resultado) {
-        $numero = 1; // Variable para enumerar las filas
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-            $id = $fila['id'];
-            $usuario = $fila['usuario'];
-            $zona = $fila['zona'];
-            $maquina = $fila['maquina'];
-            $turno = $fila['turno'];
-            $hora = $fila['hora'];
-            ?>
-                   <tr>
-                <td><?php echo $numero; ?></td>
-                <td> <?php echo utf8_decode($nombre); ?>  </td>
-                <td><?php echo ($sedeSeleccionada); ?></td>
-                <td><?php echo $zona; ?></td>
-                <td><?php echo $maquina; ?></td>
-                <td><?php echo $turno; ?></td>
-                <td><?php echo $hora; ?></td>
-                <td>Acciones</td>
-            </tr>
-            <?php
-            $numero++;
-        }
-    } else {
-        // Si no hay resultados, puedes mostrar una fila con un mensaje indicando que no se encontraron datos
-        ?>
-        <tr>
-            <td colspan="8">No se encontraron datos</td>
-        </tr>
-        <?php
-    }
-    ?>
+                    if (mysqli_num_rows($resultado) > 0) {
+                        $numero = 1; // Variable para enumerar las filas
+                        while ($fila = mysqli_fetch_assoc($resultado)) {
+                            $zona = $fila['zona'];
+                           
+                            $turno = $fila['turno'];
+                            $hora = $fila['hora'];
+                            ?>
+                            <tr>
+                                <td><?php echo $numero; ?></td>
+                                <td><?php echo $sedeSeleccionada; ?></td>
+                                <td><?php echo $zona; ?></td>
+                                
+                                <td><?php echo $turno; ?></td>
+                                <td><?php echo $hora; ?></td>
+                                <td>Acciones</td>
+                            </tr>
+                            <?php
+                            $numero++;
+                        }
+                    } else {
+                        ?>
+                        <tr>
+                            <td colspan="7">No se encontraron datos</td>
+                        </tr>
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <tr>
+                        <td colspan="7">Sede no seleccionada</td>
+                    </tr>
+                    <?php
+                }
+                ?>
             <tr>
                 <td> N° </td>
-                <td> usuario</td>
-                <td> sede</td>
-                <td> zona</td>
+           <td> sede</td>
+                <!--     <td> zona</td>
                 <td> maquina</td>
                 <td> turno</td>
-                <td> hora</td>
+                <td> hora</td>-->
                 </tr>
 
     
