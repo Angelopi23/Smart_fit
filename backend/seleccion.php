@@ -110,7 +110,7 @@ $resultfechas = $conexion->query($queryfechas);
         </div>
   
         <div class="row">
-          <div class="col-sm-6 col-xl">
+          <div class="col-sm-6 col-lg-3">
             <form method="POST" action="">
               <div class="selectbox col">
                 <div class="select " id="select">
@@ -145,7 +145,7 @@ $resultfechas = $conexion->query($queryfechas);
   
                       <!--SELECCION DE ZONA-->
 
-<div class="col-sm-6 col-xl">
+<div class="col-sm-6 col-lg-3">
   <form method="POST" action="">
     <div class="selectboxzona col">
       <div class="selectzona" id="selectzona">
@@ -193,7 +193,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                     <!--SELECCION DE MAQUINA-->
                     
   
-   <div class="col-sm-6 col-xl" >
+   <div class="col-sm-6 col-lg-3" >
   <form method="POST" action="">
   <div class="selectboxmaq col">
                 <div class="selectmaq " id="selectmaq">
@@ -219,7 +219,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
   
                       <!--SELECCION DE FECHAS -->
   
-          <div class="col-sm-6 col-xl">
+          <div class="col-sm-6 col-lg-3">
             <form method="POST" action="">
               <div class="selectboxdia col">
                 <div class="selectdia " id="selectdia">
@@ -254,7 +254,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
 
                <!--SELECCION DE TURNOS-->
 
-            <div class="col-sm-6 col-xl">
+            <div class="col-sm-6 col-lg-3">
               <form method="POST" action="">
                 <div class="selectboxturnos col">
                   <div class="selectturnos" id="selectturnos">
@@ -302,7 +302,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
              <!--SELECCION DE HORARIOS-->
                     
   
-   <div class="col-sm-6 col-xl" >
+   <div class="col-sm-6 col-lg-3" >
   <form method="POST" action="">
   <div class="selectboxhora col">
                 <div class="selecthora " id="selecthora">
@@ -322,7 +322,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
 </div>
 
   
-          <div class="col-sm-12 col-xl-2">
+          <div class="col-sm-12 col-lg-3">
             <div class="filtro">
               <a class="btn botonfil pt-4 pb-4" type="submit" >Filtrar <i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
