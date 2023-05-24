@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -24,6 +23,11 @@ $resultSede = $conexion->query($querySede);
 
 $queryfechas= "SELECT id, fecha FROM fechas ORDER BY fecha ASC";
 $resultfechas = $conexion->query($queryfechas);
+
+
+
+
+
 ?>
 
 
@@ -107,7 +111,7 @@ $resultfechas = $conexion->query($queryfechas);
   
         <div class="row">
           <div class="col-sm-6 col-xl">
-            <form action="">
+            <form method="POST" action="">
               <div class="selectbox col">
                 <div class="select " id="select">
                   <div class="contenido-select" id="contselect">
@@ -142,7 +146,7 @@ $resultfechas = $conexion->query($queryfechas);
                       <!--SELECCION DE ZONA-->
 
 <div class="col-sm-6 col-xl">
-  <form action="">
+  <form method="POST" action="">
     <div class="selectboxzona col">
       <div class="selectzona" id="selectzona">
         <div class="contenido-selectzona" id="contselectzona">
@@ -189,16 +193,17 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                     <!--SELECCION DE MAQUINA-->
                     
   
-                    <div class="col-sm-6 col-xl" id="Smaquina">
-  <form action="">
-    <div class="selectboxmaq col">
-      <div class="selectmaq" id="selectmaq">
-        <div class="contenido-selectmaq" id="contselectmaq">
-          <h1 class="titulomaq">Por máquina</h1>
-          <p class="descripcionmaq">Elige tu máquina</p>
-        </div>
-        <i class="fas fa-angle-down"></i>
-      </div>
+   <div class="col-sm-6 col-xl" >
+  <form method="POST" action="">
+  <div class="selectboxmaq col">
+                <div class="selectmaq " id="selectmaq">
+                  <div class="contenido-selectmaq" id="contselectmaq">
+                    <h1 class="titulomaq">Por máquina</h1>
+                    <p class="descripcionmaq">Elige tu máquina</p>
+                  </div>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+
       <div class="opcionesmaq" id="opcionesmaq">
         <!-- Aquí se cargarán dinámicamente las opciones de máquina -->
       </div>
@@ -215,7 +220,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                       <!--SELECCION DE FECHAS -->
   
           <div class="col-sm-6 col-xl">
-            <form action="">
+            <form method="POST" action="">
               <div class="selectboxdia col">
                 <div class="selectdia " id="selectdia">
                   <div class="contenido-selectdia" id="contselectdia">
@@ -244,12 +249,82 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
             </form>
           </div>
   
+
+
+
+               <!--SELECCION DE TURNOS-->
+
+            <div class="col-sm-6 col-xl">
+              <form method="POST" action="">
+                <div class="selectboxturnos col">
+                  <div class="selectturnos" id="selectturnos">
+                    <div class="contenido-selectturnos" id="contselectturnos">
+                      <h1 class="tituloturnos">Por Turno</h1>
+                      <p class="descripcionturnos">Elige tu turno</p>
+                    </div>
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+
+                  <div class="opcionesturnos" id="opcionesturnos">
+                    <?php
+                   
+            // conexión a la base de datos
+            $server = 'localhost';
+            $username = 'root';
+            $password = '';
+            $database = 'smart_fit';
+
+            $conexion = mysqli_connect($server, $username, $password, $database);
+
+            // consulta para obtener los datos de la tabla "zona_entrenamiento"
+            $consulta = "SELECT * FROM turnos";
+            $ejecutarConsulta = mysqli_query($conexion, $consulta);
+
+                    // generar opciones para el menú desplegable
+                    while ($fila = mysqli_fetch_array($ejecutarConsulta)) {
+                      echo '<a href="#" class="opcionturnos" onclick="cargarHorarios(' . $fila['id'] . ')">';
+                      echo '<div class="contenido-opcionturnos">';
+                      echo '<div class="textosturnos">';
+                      echo '<p class="descripcionturnos">' . $fila['turno'] . '</p>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</a>';
+                    }
+                    ?>
+                  </div>
+                </div>
+
+                <input type="hidden" name="turnos" id="inputSelectturnos" value="">
+              </form>
+            </div>
+ 
+
+             <!--SELECCION DE HORARIOS-->
+                    
   
-  
+   <div class="col-sm-6 col-xl" >
+  <form method="POST" action="">
+  <div class="selectboxhora col">
+                <div class="selecthora " id="selecthora">
+                  <div class="contenido-selecthora" id="contselecthora">
+                    <h1 class="titulohora">Por horarios</h1>
+                    <p class="descripcionhora">Elige tu horario</p>
+                  </div>
+                  <i class="fas fa-angle-down"></i>
+                </div>
+
+      <div class="opcioneshora" id="opcioneshora">
+        <!-- Aquí se cargarán dinámicamente las opciones de horas -->
+      </div>
+    </div>
+    <input type="hidden" name="hora" id="inputSelecthora" value="">
+  </form>
+</div>
+
   
           <div class="col-sm-12 col-xl-2">
             <div class="filtro">
-              <a class="btn botonfil pt-4 pb-4" href="/backend/hora.php">Filtrar <i class="fa-solid fa-magnifying-glass"></i></a>
+              <a class="btn botonfil pt-4 pb-4" type="submit" >Filtrar <i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
           </div>
   
@@ -287,21 +362,8 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
 
 
     </section>
+    
 
-
-    <script>
-  function cargarMaquinas(zonaId) {
-  // Realizar una petición AJAX para obtener las máquinas de la zona seleccionada
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState === 4 && this.status === 200) {
-      document.getElementById("opcionesmaq").innerHTML = this.responseText;
-    }
-  };
-  xmlhttp.open("GET", "configmaquina.php?zona=" + zonaId, true);
-  xmlhttp.send();
-}
-</script>
 
     <script src="/backend/JS/seleccion.js"></script>
     

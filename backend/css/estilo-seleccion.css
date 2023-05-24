@@ -167,11 +167,11 @@ body{
 
 
 
-.selectbox, .selectboxzona, .selectboxmaq, .selectboxdia{
+.selectbox, .selectboxzona, .selectboxmaq, .selectboxdia, .selectboxturnos,.selectboxhora{
 	position: relative;
 }
 
-.select, .selectzona, .selectmaq, .selectdia {
+.select, .selectzona, .selectmaq, .selectdia, .selectturnos, .selecthora{
 	background: #fff;
 	width: 100%;
 	border-radius: 5px;
@@ -192,30 +192,34 @@ body{
 .selectmaq:active,
 .selectmaq:hover,
 .selectdia:active,
-.selectdia:hover {
+.selectdia:hover, 
+.selectturnos:active,
+.selectturnos:hover
+.selecthora:active,
+.selecthora:hover{
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, .16);
     background: #dcdcdc;
 }
 
 
-.select i, .selectzona i, .selectmaq i, .selectdia i {
+.select i, .selectzona i, .selectmaq i, .selectdia i, .selectturnos i, .selecthora i {
 	font-size: 30px;
 	margin-left: 30px;
 	color: #000;
 }
 
-.titulo, .titulozona, .titulomaq, .titulodia {
+.titulo, .titulozona, .titulomaq, .titulodia, .tituloturnos, .titulohora {
 	color: #000;
 	font-weight: 600;
 	font-size: 20px;
 }
 
-.descripcion, .descripcionzona, .descripcionmaq, .descripciondia {
+.descripcion, .descripcionzona, .descripcionmaq, .descripciondia, .descripcionturnos,.descripcionhora {
 	font-size: 17px;
 	color: #434343;
 }
 
-.opciones, .opcioneszona,  .opcionesmaq, .opcionesdia{
+.opciones, .opcioneszona,  .opcionesmaq, .opcionesdia, .opcionesturnos, .opcioneshora{
 	background: #fff;
 	border-radius: 5px;
 	box-shadow: 0px 5px 10px rgba(0,0,0,.16);
@@ -228,7 +232,7 @@ body{
 }
 
 @media screen and (max-width: 1200px){
-	.opciones, .opcioneszona,  .opcionesmaq, .opcionesdia{
+	.opciones, .opcioneszona,  .opcionesmaq, .opcionesdia, .opcionesturnos, .opcioneshora{
 		background: #fff;
 		border-radius: 5px;
 		box-shadow: 0px 5px 10px rgba(0,0,0,.16);
@@ -242,16 +246,16 @@ body{
 }
 
 
-.selectbox p, .selectboxzona p, .selectboxmaq p, .selectboxdia p{
+.selectbox p, .selectboxzona p, .selectboxmaq p, .selectboxdia p, .selectboxturnos p, .selectboxhora p{
 	margin-top: 0;
 	margin-bottom: 0;
 }
 
-.opciones a, .opcioneszona a, .opcionesmaq a, .opcionesdia a{
+.opciones a, .opcioneszona a, .opcionesmaq a, .opcionesdia a,  .opcionesturnos a, .opcioneshora a{
 	text-decoration: none;
 }
 
-.opciones.active, .opcioneszona.active, .opcionesmaq.active, .opcionesdia.active {
+.opciones.active, .opcioneszona.active, .opcionesmaq.active, .opcionesdia.active, .opcionesturnos.active, .opcioneshora.active {
 	display: block;
 	animation: fadeIn .3s forwards;
 }
@@ -268,7 +272,9 @@ body{
 .contenido-opcion, 
 .contenido-opcionzona, 
 .contenido-opcionmaq, 
-.contenido-opciondia  {
+.contenido-opciondia,
+.contenido-opcionturnos,  
+.contenido-opcionhora  {
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -278,7 +284,9 @@ body{
 .opciones .contenido-opcion, 
 .opcioneszona .contenido-opcionzona, 
 .opcionesmaq .contenido-opcionmaq,  
-.opcionesdia .contenido-opciondia {
+.opcionesdia .contenido-opciondia,
+.opcionesturnos .contenido-opcionturnos,
+.opcioneshora .contenido-opcionhora {
 	padding: 10px;
 }
 
@@ -286,20 +294,24 @@ body{
 .opciones .contenido-opcion:hover, 
 .opcioneszona .contenido-opcionzona:hover, 
 .opcionesmaq .contenido-opcionmaq:hover, 
-.opcionesdia .contenido-opciondia:hover {
+.opcionesdia .contenido-opciondia:hover,
+.opcionesturnos .contenido-opcionturnos:hover,
+.opcioneshora .contenido-opcionhora:hover {
 	background: #dcdcdc;
 }
 
 .opciones .contenido-opcion .titulo, 
 .opcioneszona .contenido-opcionzona .titulozona, 
 .opcionesmaq .contenido-opcionmaq .titulomaq, 
-.opcionesdia .contenido-opciondia .titulodia{
+.opcionesdia .contenido-opciondia .titulodia,
+.opcionesturnos .contenido-opcionturnos .tituloturnos,
+.opcioneshora .contenido-opcionhora .titulohora{
 	font-size: 15px;
 }
 
 
 @media screen and (max-width: 800px){
-	.selectbox, .selectboxzona, .selectboxmaq, .selectboxdia {
+	.selectbox, .selectboxzona, .selectboxmaq, .selectboxdia, .selectboxturnos, .selectboxhora {
 		width: 100%;
 	}
 }

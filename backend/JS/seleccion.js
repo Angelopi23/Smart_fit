@@ -97,3 +97,74 @@ selectdia.addEventListener('click', () => {
 	selectdia.classList.toggle('active');
 	opcionesdia.classList.toggle('active');
 });
+
+
+
+/*SELECCION TURNOS*/
+const selectturnos = document.querySelector('#selectturnos');
+const opcionesturnos = document.querySelector('#opcionesturnos');
+const contenidoSelectturnos = document.querySelector('#contselectturnos .descripcionturnos');
+const hiddenInputturnos = document.querySelector('#inputSelectturnos');
+
+document.querySelectorAll('#opcionesturnos > .opcionturnos').forEach((opcion) => {
+	opcion.addEventListener('click', (e) => {
+		e.preventDefault();
+		contenidoSelectturnos.innerHTML = e.currentTarget.innerHTML;
+		selectturnos.classList.toggle('active');
+		opcionesturnos.classList.toggle('active');
+		hiddenInputturnos.value = e.currentTarget.querySelector('.tituloturnos').innerText;
+	});
+});
+
+selectturnos.addEventListener('click', () => {
+	selectturnos.classList.toggle('active');
+	opcionesturnos.classList.toggle('active');
+});
+
+/*SELECCION DE HORARIOS */
+const selecthora = document.querySelector('#selecthora');
+const opcioneshora = document.querySelector('#opcioneshora');
+const opcionhora = document.querySelector('#opcionhora');
+const contenidoSelecthora = document.querySelector('#contselecthora .descripcionhora');
+const contenidoOptionhora = document.querySelector('#contoptionhora .descripcionhora');
+const hiddenInputhora = document.querySelector('#inputSelecthora');
+
+
+function seleccionarhora(event){
+	const contenidoOptionhora = event.target.innerHTML;
+	contenidoSelecthora.innerHTML = contenidoOptionhora;
+	selecthora.classList.toggle('active');
+	opcioneshora.classList.toggle('active');
+};
+
+selecthora.addEventListener('click', () => {
+	selecthora.classList.toggle('active');
+	opcioneshora.classList.toggle('active');
+});
+
+/*CARGAR MAQUINAS */
+function cargarMaquinas(zonaId) {
+	// Realizar una petición AJAX para obtener las máquinas de la zona seleccionada
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState === 4 && this.status === 200) {
+		document.getElementById("opcionesmaq").innerHTML = this.responseText;
+	  }
+	};
+	xmlhttp.open("GET", "configmaquina.php?zona=" + zonaId, true);
+	xmlhttp.send();
+  }
+
+  /*CARGAR HORAS */
+
+  function cargarHorarios(horaId) {
+	// Realizar una petición AJAX para obtener las máquinas de la zona seleccionada
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState === 4 && this.status === 200) {
+		document.getElementById("opcioneshora").innerHTML = this.responseText;
+	  }
+	};
+	xmlhttp.open("GET", "confighora.php?turnos=" + horaId, true);
+	xmlhttp.send();
+  }
