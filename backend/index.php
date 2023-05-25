@@ -2,7 +2,9 @@
 <?php
 
 session_start();
-$conexion=mysqli_connect('localhost','root','','smart_fit'); 
+require("../backend/login/database.php");
+
+//$conexion=mysqli_connect('localhost','root','qwerty','smart_fit'); 
 
 if(!isset($_SESSION['email'])){
 header("location:../login/login.php");
@@ -37,6 +39,7 @@ $row=$result->fetch_assoc();
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
+
 
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-xl fixed-top" id="navbar">

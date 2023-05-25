@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-$conexion=mysqli_connect('localhost','root','','smart_fit'); 
+require("../backend/login/database.php");
+ 
 
 if(!isset($_SESSION['email'])){
 header("location:../login/login.php");
