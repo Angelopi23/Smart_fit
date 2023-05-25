@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2023 a las 06:32:13
+-- Tiempo de generación: 25-05-2023 a las 18:32:43
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -32,7 +32,7 @@ CREATE TABLE `carrito` (
   `idsede` int(11) DEFAULT NULL,
   `idzona` int(11) DEFAULT NULL,
   `idmaquina` int(11) DEFAULT NULL,
-  `idfecha` int(11) DEFAULT NULL,
+  `iddia` int(11) DEFAULT NULL,
   `idturno` int(11) DEFAULT NULL,
   `idhora` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -269,7 +269,7 @@ ALTER TABLE `carrito`
   ADD KEY `idsede` (`idsede`),
   ADD KEY `idzona` (`idzona`),
   ADD KEY `idmaquina` (`idmaquina`),
-  ADD KEY `idfecha` (`idfecha`),
+  ADD KEY `idfecha` (`iddia`),
   ADD KEY `idturno` (`idturno`),
   ADD KEY `idhora` (`idhora`);
 
@@ -344,7 +344,7 @@ ALTER TABLE `zona_entrenamiento`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `fechas`
@@ -411,7 +411,7 @@ ALTER TABLE `carrito`
   ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`id`),
   ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`idzona`) REFERENCES `zona_entrenamiento` (`id`),
   ADD CONSTRAINT `carrito_ibfk_3` FOREIGN KEY (`idmaquina`) REFERENCES `maquinas` (`id`),
-  ADD CONSTRAINT `carrito_ibfk_4` FOREIGN KEY (`idfecha`) REFERENCES `fechas` (`id`),
+  ADD CONSTRAINT `carrito_ibfk_4` FOREIGN KEY (`iddia`) REFERENCES `fechas` (`id`),
   ADD CONSTRAINT `carrito_ibfk_5` FOREIGN KEY (`idturno`) REFERENCES `turnos` (`id`),
   ADD CONSTRAINT `carrito_ibfk_6` FOREIGN KEY (`idhora`) REFERENCES `horarios` (`id`);
 

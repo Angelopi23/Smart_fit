@@ -6,7 +6,7 @@ require("../backend/login/database.php");
 $zonaId = $_GET['zona'];
 
 // consulta para obtener las máquinas de la zona seleccionada
-$consulta = "SELECT * FROM maquinas WHERE idzona = " . $zonaId;
+$consulta = "SELECT * FROM maquinas WHERE id = " . $zonaId;
 $ejecutarConsulta = mysqli_query($conexion, $consulta);
 
 // generar opciones de máquina en formato HTML
