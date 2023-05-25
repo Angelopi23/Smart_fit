@@ -24,9 +24,21 @@ $resultSede = $conexion->query($querySede);
 $queryfechas= "SELECT id, fecha FROM fechas ORDER BY fecha ASC";
 $resultfechas = $conexion->query($queryfechas);
 
+/*se inserte a la BD */
+if (isset($_POST['carrito_btn'])) {
+  $sede = $_POST['sede'];
+  $zona = $_POST['zona'];
+  $maq = $_POST['maq'];
+  $fecha = $_POST['dia'];
+  $turnos = $_POST['turnos'];
+  $hora = $_POST['hora'];
 
+  $insertQuery = "INSERT INTO carrito (idsede, idzona, idmaquina, idfecha, idturno, idhora) VALUES ('$sede', '$zona', '$maq', '$fecha', '$turnos','$hora')";
+  mysqli_query($conexion, $insertQuery);
 
-
+  header("location: carrito.php");
+  exit();
+}
 
 ?>
 
@@ -102,16 +114,19 @@ $resultfechas = $conexion->query($queryfechas);
     <!-- Portada -->
 
 
+                <!--MENUS DESPLEGABLES -->
+
 
     <section class="seccion container-md">
-
+        <form  method="POST" action="carrito.php">
+        
         <div class="row pt-3 pb-3">
           <h3>Reserva <span>por:</span></h3>
         </div>
   
         <div class="row">
           <div class="col-sm-6 col-lg-3">
-            <form method="POST" action="">
+           
               <div class="selectbox col">
                 <div class="select " id="select">
                   <div class="contenido-select" id="contselect">
@@ -139,14 +154,14 @@ $resultfechas = $conexion->query($queryfechas);
               </div>
         
               <input type="hidden" name="sede" id="inputSelect" value="">
-            </form>
+        
           </div>
   
   
                       <!--SELECCION DE ZONA-->
 
 <div class="col-sm-6 col-lg-3">
-  <form method="POST" action="">
+  
     <div class="selectboxzona col">
       <div class="selectzona" id="selectzona">
         <div class="contenido-selectzona" id="contselectzona">
@@ -186,7 +201,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
     </div>
 
     <input type="hidden" name="zona" id="inputSelectzona" value="">
-  </form>
+  
 </div>
   
   
@@ -194,7 +209,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                     
   
    <div class="col-sm-6 col-lg-3" >
-  <form method="POST" action="">
+  
   <div class="selectboxmaq col">
                 <div class="selectmaq " id="selectmaq">
                   <div class="contenido-selectmaq" id="contselectmaq">
@@ -209,7 +224,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
       </div>
     </div>
     <input type="hidden" name="maq" id="inputSelectmaq" value="">
-  </form>
+
 </div>
   
   
@@ -220,7 +235,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                       <!--SELECCION DE FECHAS -->
   
           <div class="col-sm-6 col-lg-3">
-            <form method="POST" action="">
+           
               <div class="selectboxdia col">
                 <div class="selectdia " id="selectdia">
                   <div class="contenido-selectdia" id="contselectdia">
@@ -246,7 +261,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
               </div>
         
               <input type="hidden" name="dia" id="inputSelectdia" value="">
-            </form>
+          
           </div>
   
 
@@ -255,7 +270,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                <!--SELECCION DE TURNOS-->
 
             <div class="col-sm-6 col-lg-3">
-              <form method="POST" action="">
+             
                 <div class="selectboxturnos col">
                   <div class="selectturnos" id="selectturnos">
                     <div class="contenido-selectturnos" id="contselectturnos">
@@ -295,7 +310,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                 </div>
 
                 <input type="hidden" name="turnos" id="inputSelectturnos" value="">
-              </form>
+           
             </div>
  
 
@@ -303,7 +318,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
                     
   
    <div class="col-sm-6 col-lg-3" >
-  <form method="POST" action="">
+ 
   <div class="selectboxhora col">
                 <div class="selecthora " id="selecthora">
                   <div class="contenido-selecthora" id="contselecthora">
@@ -318,13 +333,13 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
       </div>
     </div>
     <input type="hidden" name="hora" id="inputSelecthora" value="">
-  </form>
+
 </div>
 
   
           <div class="col-sm-12 col-lg-3">
             <div class="filtro">
-              <a class="btn botonfil pt-4 pb-4" type="submit" >Filtrar <i class="fa-solid fa-magnifying-glass"></i></a>
+            <button class="btn botonfil pt-4 pb-4" type="submit" name="carrito_btn">AÑADIR AL CARRITO <i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
           </div>
   
@@ -332,7 +347,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
       
         </div>
 
-
+      
 
 
         <div class="row mt-4">
@@ -359,8 +374,8 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
             <h3>¡Saca tu <span>mejor forma!</span></h3>
           </div>
 
-
-
+          </form>
+      
     </section>
     
 
