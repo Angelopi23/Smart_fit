@@ -91,7 +91,7 @@ if (isset($_POST['carrito_btn'])) {
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Perfil</a></li>
                     <li><hr class="dropdown-divider"></hr></li>
-                    <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    <li><a class="dropdown-item" href="/backend/login/login.php">Cerrar Sesión</a></li>
                   </ul>
                 </div>
               </li>
