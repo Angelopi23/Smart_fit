@@ -7,7 +7,7 @@ require("../backend/login/database.php");
 $horaId = $_GET['turnos'];
 
 // consulta para obtener las hora del turno seleccionada
-$consulta = "SELECT * FROM horarios WHERE id = " . $horaId;
+$consulta = "SELECT * FROM horarios WHERE idturno = " . $horaId;
 $ejecutarConsulta = mysqli_query($conexion, $consulta);
 
 // generar opciones de horas en formato HTML

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2023 a las 06:25:22
+-- Tiempo de generación: 25-05-2023 a las 06:32:13
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,18 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `carrito` (
   `id` int(11) NOT NULL,
-  `sedes` int(11) DEFAULT NULL
+  `idsede` int(11) DEFAULT NULL,
+  `idzona` int(11) DEFAULT NULL,
+  `idmaquina` int(11) DEFAULT NULL,
+  `idfecha` int(11) DEFAULT NULL,
+  `idturno` int(11) DEFAULT NULL,
+  `idhora` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `carrito`
---
-
-INSERT INTO `carrito` (`id`, `sedes`) VALUES
-(1, NULL),
-(2, NULL),
-(3, NULL),
-(4, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,43 +65,44 @@ INSERT INTO `fechas` (`id`, `fecha`) VALUES
 
 CREATE TABLE `horarios` (
   `id` int(11) NOT NULL,
-  `hora` time NOT NULL
+  `hora` varchar(50) DEFAULT NULL,
+  `idturno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `horarios`
 --
 
-INSERT INTO `horarios` (`id`, `hora`) VALUES
-(1, '07:00:00'),
-(1, '07:30:00'),
-(1, '08:00:00'),
-(1, '08:30:00'),
-(1, '09:00:00'),
-(1, '09:30:00'),
-(1, '10:00:00'),
-(1, '10:30:00'),
-(1, '11:00:00'),
-(1, '11:30:00'),
-(2, '12:00:00'),
-(2, '12:30:00'),
-(2, '13:00:00'),
-(2, '13:30:00'),
-(2, '14:00:00'),
-(2, '14:30:00'),
-(2, '15:00:00'),
-(2, '15:30:00'),
-(2, '16:00:00'),
-(2, '16:30:00'),
-(2, '17:00:00'),
-(2, '17:30:00'),
-(2, '18:00:00'),
-(2, '18:30:00'),
-(3, '19:00:00'),
-(3, '19:30:00'),
-(3, '20:00:00'),
-(3, '20:30:00'),
-(3, '21:00:00');
+INSERT INTO `horarios` (`id`, `hora`, `idturno`) VALUES
+(1, '07:00:00', 1),
+(2, '07:30:00', 1),
+(3, '08:00:00', 1),
+(4, '08:30:00', 1),
+(5, '09:00:00', 1),
+(6, '09:30:00', 1),
+(7, '10:00:00', 1),
+(8, '10:30:00', 1),
+(9, '11:00:00', 1),
+(10, '11:30:00', 1),
+(11, '12:00:00', 2),
+(12, '12:30:00', 2),
+(13, '13:00:00', 2),
+(14, '13:30:00', 2),
+(15, '14:00:00', 2),
+(16, '14:30:00', 2),
+(17, '15:00:00', 2),
+(18, '15:30:00', 2),
+(19, '16:00:00', 2),
+(20, '16:30:00', 2),
+(21, '17:00:00', 2),
+(22, '17:30:00', 2),
+(23, '18:00:00', 2),
+(24, '18:30:00', 2),
+(25, '19:00:00', 3),
+(26, '19:30:00', 3),
+(27, '20:00:00', 3),
+(28, '20:30:00', 3),
+(29, '21:00:00', 3);
 
 -- --------------------------------------------------------
 
@@ -116,30 +112,45 @@ INSERT INTO `horarios` (`id`, `hora`) VALUES
 
 CREATE TABLE `maquinas` (
   `id` int(11) NOT NULL,
-  `maquina` varchar(50) NOT NULL
+  `maquina` varchar(50) DEFAULT NULL,
+  `idzona` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `maquinas`
 --
 
-INSERT INTO `maquinas` (`id`, `maquina`) VALUES
-(1, 'caminadora'),
-(1, 'escaladora'),
-(1, 'bicicletas'),
-(1, 'remadoras(Maquina de remo)'),
-(1, 'escaleras infinitas'),
-(2, 'rack funcional'),
-(2, 'bolsas salm'),
-(2, 'barras olimpicas'),
-(2, 'kettlebells'),
-(2, 'placas de parachoques'),
-(3, 'hack squat'),
-(3, 'empuje de cadera'),
-(3, 'jersey'),
-(3, 'pres de banca'),
-(3, 'prensa'),
-(3, 'remo con barra');
+INSERT INTO `maquinas` (`id`, `maquina`, `idzona`) VALUES
+(1, 'caminadora', 1),
+(2, 'escaladora', 1),
+(3, 'bicicletas', 1),
+(4, 'remadoras(Maquina de remo)', 1),
+(5, 'escaleras infinitas', 1),
+(6, 'rack funcional', 2),
+(7, 'bolsas salm', 2),
+(8, 'barras olimpicas', 2),
+(9, 'kettlebells', 2),
+(10, 'placas de parachoques', 2),
+(11, 'hack squat', 3),
+(12, 'empuje de cadera', 3),
+(13, 'jersey', 3),
+(14, 'pres de banca', 3),
+(15, 'prensa', 3),
+(16, 'remo de barra', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservas`
+--
+
+CREATE TABLE `reservas` (
+  `id` int(11) NOT NULL,
+  `id_sede` int(11) NOT NULL,
+  `id_zona` int(11) NOT NULL,
+  `id_maq` int(11) NOT NULL,
+  `id_fecha` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -255,7 +266,12 @@ INSERT INTO `zona_entrenamiento` (`id`, `entrenamiento`) VALUES
 --
 ALTER TABLE `carrito`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_sedes` (`sedes`);
+  ADD KEY `idsede` (`idsede`),
+  ADD KEY `idzona` (`idzona`),
+  ADD KEY `idmaquina` (`idmaquina`),
+  ADD KEY `idfecha` (`idfecha`),
+  ADD KEY `idturno` (`idturno`),
+  ADD KEY `idhora` (`idhora`);
 
 --
 -- Indices de la tabla `fechas`
@@ -267,13 +283,25 @@ ALTER TABLE `fechas`
 -- Indices de la tabla `horarios`
 --
 ALTER TABLE `horarios`
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idturno` (`idturno`);
 
 --
 -- Indices de la tabla `maquinas`
 --
 ALTER TABLE `maquinas`
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idzona` (`idzona`);
+
+--
+-- Indices de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_zona` (`id_zona`),
+  ADD UNIQUE KEY `id_sede` (`id_sede`),
+  ADD UNIQUE KEY `id_maq` (`id_maq`),
+  ADD UNIQUE KEY `fecha` (`id_fecha`);
 
 --
 -- Indices de la tabla `sedes`
@@ -316,13 +344,31 @@ ALTER TABLE `zona_entrenamiento`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `fechas`
 --
 ALTER TABLE `fechas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `horarios`
+--
+ALTER TABLE `horarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT de la tabla `maquinas`
+--
+ALTER TABLE `maquinas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `sedes`
@@ -362,25 +408,24 @@ ALTER TABLE `zona_entrenamiento`
 -- Filtros para la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`sedes`) REFERENCES `sedes` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`id`),
+  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`idzona`) REFERENCES `zona_entrenamiento` (`id`),
+  ADD CONSTRAINT `carrito_ibfk_3` FOREIGN KEY (`idmaquina`) REFERENCES `maquinas` (`id`),
+  ADD CONSTRAINT `carrito_ibfk_4` FOREIGN KEY (`idfecha`) REFERENCES `fechas` (`id`),
+  ADD CONSTRAINT `carrito_ibfk_5` FOREIGN KEY (`idturno`) REFERENCES `turnos` (`id`),
+  ADD CONSTRAINT `carrito_ibfk_6` FOREIGN KEY (`idhora`) REFERENCES `horarios` (`id`);
 
 --
 -- Filtros para la tabla `horarios`
 --
 ALTER TABLE `horarios`
-  ADD CONSTRAINT `horarios_ibfk_1` FOREIGN KEY (`id`) REFERENCES `turnos` (`id`);
+  ADD CONSTRAINT `horarios_ibfk_1` FOREIGN KEY (`idturno`) REFERENCES `turnos` (`id`);
 
 --
 -- Filtros para la tabla `maquinas`
 --
 ALTER TABLE `maquinas`
-  ADD CONSTRAINT `maquinas_ibfk_1` FOREIGN KEY (`id`) REFERENCES `zona_entrenamiento` (`id`);
-
---
--- Filtros para la tabla `seleccion`
---
-ALTER TABLE `seleccion`
-  ADD CONSTRAINT `seleccion_ibfk_6` FOREIGN KEY (`id_fecha`) REFERENCES `fechas` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `maquinas_ibfk_1` FOREIGN KEY (`idzona`) REFERENCES `zona_entrenamiento` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

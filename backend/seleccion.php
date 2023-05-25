@@ -3,7 +3,6 @@
 session_start();
 require("../backend/login/database.php");
 
-
 if(!isset($_SESSION['email'])){
 header("location:../login/login.php");
 
@@ -25,22 +24,27 @@ $resultSede = $conexion->query($querySede);
 $queryfechas= "SELECT id, fecha FROM fechas ORDER BY fecha ASC";
 $resultfechas = $conexion->query($queryfechas);
 
-/*se inserte a la BD */
-if (isset($_POST['carrito_btn'])) {
+if(isset($_POST['carrito_btn'])) {
+  // Obtener los valores seleccionados
   $sede = $_POST['sede'];
   $zona = $_POST['zona'];
   $maq = $_POST['maq'];
-  $fecha = $_POST['dia'];
-  $turnos = $_POST['turnos'];
+  $dia = $_POST['dia'];
+  $turno= $_POST['turno'];
   $hora = $_POST['hora'];
-
-  $insertQuery = "INSERT INTO carrito (idsede, idzona, idmaquina, idfecha, idturno, idhora) VALUES ('$sede', '$zona', '$maq', '$fecha', '$turnos','$hora')";
-  mysqli_query($conexion, $insertQuery);
-
-  header("location: carrito.php");
-  exit();
+  
+  // Insertar los valores en la tabla "carrito"
+  $insertar = "INSERT INTO carrito (sede, zona, maq, dia, turno, hora) VALUES ('$sede', '$zona', '$maq', '$dia', '$turno','$hora')";
+  $resultado = $conexion->query($insertar);
+  
+  if($resultado) {
+    // La inserción se realizó correctamente, puedes redirigir al usuario o mostrar un mensaje de éxito
+    echo "Producto añadido al carrito exitosamente";
+  } else {
+    // Ocurrió un error durante la inserción, puedes mostrar un mensaje de error o realizar alguna acción adicional
+    echo "Error al añadir el producto al carrito";
+  }
 }
-
 ?>
 
 
