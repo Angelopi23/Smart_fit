@@ -1,11 +1,6 @@
 <?php
 // conexión a la base de datos
-$server = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'smart_fit';
-
-$conexion = mysqli_connect($server, $username, $password, $database);
+require("../backend/login/database.php");
 
 // obtener el ID de la zona seleccionada
 $zonaId = $_GET['zona'];

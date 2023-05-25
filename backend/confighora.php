@@ -1,11 +1,7 @@
 <?php
 // conexión a la base de datos
-$server = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'smart_fit';
+require("../backend/login/database.php");
 
-$conexion = mysqli_connect($server, $username, $password, $database);
 
 // obtener el ID de la hora seleccionada
 $horaId = $_GET['turnos'];
