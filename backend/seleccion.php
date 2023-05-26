@@ -17,34 +17,21 @@ $mostrar="SELECT*FROM usuario
 $result=$conexion->query($mostrar);
 
 $row=$result->fetch_assoc();
-
+/*
 $querySede = "SELECT id, sede FROM sedes ORDER BY sede ASC";
 $resultSede = $conexion->query($querySede);
 
 $queryfechas= "SELECT id, fecha FROM fechas ORDER BY fecha ASC";
 $resultfechas = $conexion->query($queryfechas);
 
-if(isset($_POST['carrito_btn'])) {
-  // Obtener los valores seleccionados
-  $sede = $_POST['sede'];
-  $zona = $_POST['zona'];
-  $maq = $_POST['maq'];
-  $dia = $_POST['dia'];
-  $turno= $_POST['turno'];
-  $hora = $_POST['hora'];
-  
-  // Insertar los valores en la tabla "carrito"
-  $insertar = "INSERT INTO carrito (sede, zona, maq, dia, turno, hora) VALUES ('$sede', '$zona', '$maq', '$dia', '$turno','$hora')";
-  $resultado = $conexion->query($insertar);
-  
-  if($resultado) {
-    // La inserción se realizó correctamente, puedes redirigir al usuario o mostrar un mensaje de éxito
-    echo "Producto añadido al carrito exitosamente";
-  } else {
-    // Ocurrió un error durante la inserción, puedes mostrar un mensaje de error o realizar alguna acción adicional
-    echo "Error al añadir el producto al carrito";
-  }
-}
+
+$link=mysqli_connect("localhost","root", "");
+if($link){
+
+   mysqli_select_db($link,"smart_fit");
+   mysqli_query($link,"SET NAMES 'utf8'");
+} */
+
 ?>
 
 
@@ -123,235 +110,94 @@ if(isset($_POST['carrito_btn'])) {
 
 
     <section class="seccion container-md">
-        <form  method="POST" action="carrito.php">
-        
-        <div class="row pt-3 pb-3">
-          <h3>Reserva <span>por:</span></h3>
-        </div>
-  
-        <div class="row">
-          <div class="col-sm-6 col-lg-3">
-           
-              <div class="selectbox col">
-                <div class="select " id="select">
-                  <div class="contenido-select" id="contselect">
-                    <h1 class="titulo">Por sede</h1>
-                    <p class="descripcion">Elige tu sede</p>
-                  </div>
-                  <i class="fas fa-angle-down"></i>
-                </div>
-  
-  
+    <form action="../backend/controllers/guardarCarrito.php" method="POST">
 
-                <div class="opciones" id="opciones">
-                  <?php while($rowSede = $resultSede->fetch_assoc()) {?>
-                    <a href="#" class="opcion">
-                      <div class="contenido-opcion">
-                        <div class="textos">
-                          <p class="descripcion" style="text-decoration: solid;"><?php echo $rowSede['sede'];?></p>
-                        </div>
-                      </div>
-                    </a>
-                  <?php } ?>
-                </div>
-
-
-              </div>
-        
-              <input type="hidden" name="sede" id="inputSelect" value="">
-        
-          </div>
-  
-  
-                      <!--SELECCION DE ZONA-->
-
-<div class="col-sm-6 col-lg-3">
-  
+<div class="row pt-3 pb-3">
+  <h3>Reserva <span>por:</span></h3>
+</div>
+<div class="row">
+   <!--SELECCION DE SEDES-->
+  <div class="col-sm-6 col-lg-3">
+    <div class="selectbox col">
+      <select name="sede" class="select" id="select">
+        <option value="">Por sede</option>
+        <?php foreach ($_SESSION['sede'] as $sede) { ?>
+          <option value="<?php echo $sede; ?>"><?php echo $sede; ?></option>
+        <?php } ?>
+      </select>
+    </div>
+  </div>
+   <!--SELECCION DE ZONAS-->
+  <div class="col-sm-6 col-lg-3">
     <div class="selectboxzona col">
-      <div class="selectzona" id="selectzona">
-        <div class="contenido-selectzona" id="contselectzona">
-          <h1 class="titulozona">Por zona</h1>
-          <p class="descripcionzona">Elige tu zona</p>
-        </div>
-        <i class="fas fa-angle-down"></i>
-      </div>
+      <select name="zona" class="selectzona" id="selectzona">
+        <option value="">Por zona</option>
+        <?php foreach ($_SESSION['zonas'] as $zonas) { ?>
+          <option value="<?php echo $zonas; ?>"><?php echo $zonas; ?></option>
+        <?php } ?>
 
-      <div class="opcioneszona" id="opcioneszona">
-        <?php
        
-// conexión a la base de datos
-$server = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'smart_fit';
-
-$conexion = mysqli_connect($server, $username, $password, $database);
-
-// consulta para obtener los datos de la tabla "zona_entrenamiento"
-$consulta = "SELECT * FROM zona_entrenamiento";
-$ejecutarConsulta = mysqli_query($conexion, $consulta);
-
-        // generar opciones para el menú desplegable
-        while ($fila = mysqli_fetch_array($ejecutarConsulta)) {
-          echo '<a href="#" class="opcionzona" onclick="cargarMaquinas(' . $fila['id'] . ')">';
-          echo '<div class="contenido-opcionzona">';
-          echo '<div class="textoszona">';
-          echo '<p class="descripcionzona">' . $fila['entrenamiento'] . '</p>';
-          echo '</div>';
-          echo '</div>';
-          echo '</a>';
-        }
-        ?>
-      </div>
+      </select>
     </div>
-
-    <input type="hidden" name="zona" id="inputSelectzona" value="">
-  
-</div>
-  
-  
-                    <!--SELECCION DE MAQUINA-->
-                    
-  
-   <div class="col-sm-6 col-lg-3" >
-  
-  <div class="selectboxmaq col">
-                <div class="selectmaq " id="selectmaq">
-                  <div class="contenido-selectmaq" id="contselectmaq">
-                    <h1 class="titulomaq">Por máquina</h1>
-                    <p class="descripcionmaq">Elige tu máquina</p>
-                  </div>
-                  <i class="fas fa-angle-down"></i>
-                </div>
-
-      <div class="opcionesmaq" id="opcionesmaq">
-        <!-- Aquí se cargarán dinámicamente las opciones de máquina -->
-      </div>
+  </div>
+   <!--SELECCION DE MAQUINAS-->
+  <div class="col-sm-6 col-lg-3">
+    <div class="selectboxmaq col">
+      <select name="maq" class="selectmaq" id="selectmaq">
+        <option value="">Por máquina</option>
+        <?php foreach ($_SESSION['maquinas'] as $maquina) { ?>
+          <option value="<?php echo $maquina; ?>"><?php echo $maquina; ?></option>
+        <?php } ?>
+      </select>
     </div>
-    <input type="hidden" name="maq" id="inputSelectmaq" value="">
+  </div>
+   <!--SELECCION DE FECHAS-->
+  <div class="col-sm-6 col-lg-3">
+    <div class="selectboxdia col">
+      <select name="dia" class="selectdia" id="selectdia">
+        <option value="">Por fecha</option>
+        <?php foreach ($_SESSION['fecha'] as $fecha) { ?>
+          <option value="<?php echo $fecha; ?>"><?php echo $fecha; ?></option>
+        <?php } ?>
+      </select>
+    </div>
+  </div>
 
-</div>
-  
-  
-  
-  
-  
-  
-                      <!--SELECCION DE FECHAS -->
-  
-          <div class="col-sm-6 col-lg-3">
-           
-              <div class="selectboxdia col">
-                <div class="selectdia " id="selectdia">
-                  <div class="contenido-selectdia" id="contselectdia">
-                    <h1 class="titulodia">Por fecha</h1>
-                    <p class="descripciondia">Elige un día</p>
-                  </div>
-                  <i class="fas fa-angle-down"></i>
-                </div>
-  
-  
-                <div class="opcionesdia" id="opcionesdia">
-                <?php while($rowfechas = $resultfechas->fetch_assoc()) {?>
-                  <a href="#" class="opciondia">
-                    <div class="contenido-opciondia">
-                      <div class="textosdia">
-                        <p class="descripciondia" style="text-decoration: solid;"><?php echo $rowfechas['fecha'];?></p>
-                      </div>
-                    </div>
-                  </a>
-                  <?php } ?>
-                </div>
-        
-              </div>
-        
-              <input type="hidden" name="dia" id="inputSelectdia" value="">
-          
-          </div>
-  
+   <!--SELECCION DE TURNOS-->
+  <div class="col-sm-6 col-lg-3">
+        <div class="selectboxturnos col">
+          <select name="turnos" class="selectturnos" id="selectturnos">
+            <option value="">Por turno</option>
+            <?php foreach ($_SESSION['turno'] as $turno) { ?>
+              <option value="<?php echo $turno; ?>"><?php echo $turno; ?></option>
+            <?php } ?>
+          </select>
+        </div>
+      </div>
 
-
-
-               <!--SELECCION DE TURNOS-->
-
-            <div class="col-sm-6 col-lg-3">
-             
-                <div class="selectboxturnos col">
-                  <div class="selectturnos" id="selectturnos">
-                    <div class="contenido-selectturnos" id="contselectturnos">
-                      <h1 class="tituloturnos">Por Turno</h1>
-                      <p class="descripcionturnos">Elige tu turno</p>
-                    </div>
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-
-                  <div class="opcionesturnos" id="opcionesturnos">
-                    <?php
-                   
-            // conexión a la base de datos
-            $server = 'localhost';
-            $username = 'root';
-            $password = '';
-            $database = 'smart_fit';
-
-            $conexion = mysqli_connect($server, $username, $password, $database);
-
-            // consulta para obtener los datos de la tabla "zona_entrenamiento"
-            $consulta = "SELECT * FROM turnos";
-            $ejecutarConsulta = mysqli_query($conexion, $consulta);
-
-                    // generar opciones para el menú desplegable
-                    while ($fila = mysqli_fetch_array($ejecutarConsulta)) {
-                      echo '<a href="#" class="opcionturnos" onclick="cargarHorarios(' . $fila['id'] . ')">';
-                      echo '<div class="contenido-opcionturnos">';
-                      echo '<div class="textosturnos">';
-                      echo '<p class="descripcionturnos">' . $fila['turno'] . '</p>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</a>';
-                    }
-                    ?>
-                  </div>
-                </div>
-
-                <input type="hidden" name="turnos" id="inputSelectturnos" value="">
-           
-            </div>
  
-
              <!--SELECCION DE HORARIOS-->
                     
   
-   <div class="col-sm-6 col-lg-3" >
- 
-  <div class="selectboxhora col">
-                <div class="selecthora " id="selecthora">
-                  <div class="contenido-selecthora" id="contselecthora">
-                    <h1 class="titulohora">Por horarios</h1>
-                    <p class="descripcionhora">Elige tu horario</p>
-                  </div>
-                  <i class="fas fa-angle-down"></i>
-                </div>
-
-      <div class="opcioneshora" id="opcioneshora">
-        <!-- Aquí se cargarán dinámicamente las opciones de horas -->
+             <div class="col-sm-6 col-lg-3">
+        <div class="selectboxhora col">
+          <select name="hora" class="selecthora" id="selecthora">
+            <option value="">Por horario</option>
+            <?php foreach ($_SESSION['horarios'] as $horarios) { ?>
+              <option value="<?php echo $horarios; ?>"><?php echo $horarios; ?></option>
+            <?php } ?>
+          </select>
+        </div>
       </div>
-    </div>
-    <input type="hidden" name="hora" id="inputSelecthora" value="">
-
-</div>
 
   
           <div class="col-sm-12 col-lg-3">
             <div class="filtro">
-            <button class="btn botonfil pt-4 pb-4" type="submit" name="carrito_btn">AÑADIR AL CARRITO <i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="submit" class="btn botonfil pt-4 pb-4" name="guardar_carrito" value="Guardar Carrito"><i class="fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
-  
-  
-      
         </div>
-
+        </form>
       
 
 
@@ -379,7 +225,7 @@ $ejecutarConsulta = mysqli_query($conexion, $consulta);
             <h3>¡Saca tu <span>mejor forma!</span></h3>
           </div>
 
-          </form>
+       
       
     </section>
     
