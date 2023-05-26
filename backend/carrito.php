@@ -21,7 +21,7 @@ $result=$conexion->query($mostrar);
 $row=$result->fetch_assoc();
 
 
-
+/*
 if (isset($_POST['sedes'])) {
   $sedeSeleccionada = $_POST['sedes'];
   // Aquí puedes realizar las operaciones necesarias para guardar la sede en la tabla "carrito"
@@ -35,7 +35,7 @@ if (isset($_POST['sedes'])) {
   }
 } else {
   echo "Error: No se ha seleccionado ninguna sede";
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
