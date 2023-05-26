@@ -26,11 +26,14 @@ if($resultado){
     while($row = $resultado->fetch_array()){
         $nombres =strtoupper($row['nombres']);      //strtoupper codigo que pone mayusculas
         $apellidos =strtoupper( $row['apellidos']);
+        $id = $row['id']; 
     }
 
     $_SESSION['nombres']=$nombres;
     $_SESSION['apellidos']=$apellidos;
+    $_SESSION['id']=$id;
 }
+//var_dump($_SESSION);
 
 if($filas){
     header("location:/backend/index.php");

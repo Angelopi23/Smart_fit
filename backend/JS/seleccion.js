@@ -112,7 +112,7 @@ document.querySelectorAll('#opcionesturnos > .opcionturnos').forEach((opcion) =>
 		contenidoSelectturnos.innerHTML = e.currentTarget.innerHTML;
 		selectturnos.classList.toggle('active');
 		opcionesturnos.classList.toggle('active');
-		hiddenInputturnos.value = e.currentTarget.querySelector('.tituloturnos').innerText;
+		hiddenInputturnos.value = e.currentTarget.querySelector('.descripcionturnos').innerText;
 	});
 });
 

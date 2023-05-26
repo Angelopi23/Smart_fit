@@ -1,433 +1,260 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2023 a las 18:32:43
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: smart_fit2
+-- ------------------------------------------------------
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Base de datos: `smart_fit`
+-- Table structure for table `carrito`
 --
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `carrito`
---
-
+DROP TABLE IF EXISTS `carrito`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carrito` (
-  `id` int(11) NOT NULL,
-  `idsede` int(11) DEFAULT NULL,
-  `idzona` int(11) DEFAULT NULL,
-  `idmaquina` int(11) DEFAULT NULL,
-  `iddia` int(11) DEFAULT NULL,
-  `idturno` int(11) DEFAULT NULL,
-  `idhora` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sedes` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `maquina` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `horarios` time DEFAULT NULL,
+  `zona` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `turno` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fecha` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `usuario` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estructura de tabla para la tabla `fechas`
+-- Dumping data for table `carrito`
 --
 
+LOCK TABLES `carrito` WRITE;
+/*!40000 ALTER TABLE `carrito` DISABLE KEYS */;
+INSERT INTO `carrito` VALUES (1,'asd','asd','07:00:00','sdas','asdad','asdasd',NULL),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(9,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(10,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(11,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(12,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(13,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(14,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(15,'Real Plaza Huancayo','caminadora','07:00:00','cardio','sss','24 de mayo',NULL),(16,'Open Plaza Huancayo','escaladora','07:00:00','fuerza','sss','26 de mayo',NULL),(17,'Real Plaza Huancayo','hack squat','14:00:00','fuerza','mañana','25 de mayo',1),(18,'Real Plaza Huancayo','hack squat','14:00:00','fuerza','mañana','25 de mayo',1);
+/*!40000 ALTER TABLE `carrito` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fechas`
+--
+
+DROP TABLE IF EXISTS `fechas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fechas` (
-  `id` int(11) NOT NULL,
-  `fecha` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fecha` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `fechas`
+-- Dumping data for table `fechas`
 --
 
-INSERT INTO `fechas` (`id`, `fecha`) VALUES
-(1, '24 de mayo'),
-(2, '25 de mayo'),
-(3, '26 de mayo');
-
--- --------------------------------------------------------
+LOCK TABLES `fechas` WRITE;
+/*!40000 ALTER TABLE `fechas` DISABLE KEYS */;
+INSERT INTO `fechas` VALUES (1,'24 de mayo'),(2,'25 de mayo'),(3,'26 de mayo');
+/*!40000 ALTER TABLE `fechas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `horarios`
+-- Table structure for table `horarios`
 --
 
+DROP TABLE IF EXISTS `horarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `horarios` (
-  `id` int(11) NOT NULL,
-  `hora` varchar(50) DEFAULT NULL,
-  `idturno` int(11) DEFAULT NULL
+  `id` int NOT NULL,
+  `hora` time NOT NULL,
+  KEY `id` (`id`),
+  CONSTRAINT `horarios_ibfk_1` FOREIGN KEY (`id`) REFERENCES `turnos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `horarios`
+-- Dumping data for table `horarios`
 --
 
-INSERT INTO `horarios` (`id`, `hora`, `idturno`) VALUES
-(1, '07:00:00', 1),
-(2, '07:30:00', 1),
-(3, '08:00:00', 1),
-(4, '08:30:00', 1),
-(5, '09:00:00', 1),
-(6, '09:30:00', 1),
-(7, '10:00:00', 1),
-(8, '10:30:00', 1),
-(9, '11:00:00', 1),
-(10, '11:30:00', 1),
-(11, '12:00:00', 2),
-(12, '12:30:00', 2),
-(13, '13:00:00', 2),
-(14, '13:30:00', 2),
-(15, '14:00:00', 2),
-(16, '14:30:00', 2),
-(17, '15:00:00', 2),
-(18, '15:30:00', 2),
-(19, '16:00:00', 2),
-(20, '16:30:00', 2),
-(21, '17:00:00', 2),
-(22, '17:30:00', 2),
-(23, '18:00:00', 2),
-(24, '18:30:00', 2),
-(25, '19:00:00', 3),
-(26, '19:30:00', 3),
-(27, '20:00:00', 3),
-(28, '20:30:00', 3),
-(29, '21:00:00', 3);
-
--- --------------------------------------------------------
+LOCK TABLES `horarios` WRITE;
+/*!40000 ALTER TABLE `horarios` DISABLE KEYS */;
+INSERT INTO `horarios` VALUES (1,'07:00:00'),(1,'07:30:00'),(1,'08:00:00'),(1,'08:30:00'),(1,'09:00:00'),(1,'09:30:00'),(1,'10:00:00'),(1,'10:30:00'),(1,'11:00:00'),(1,'11:30:00'),(2,'12:00:00'),(2,'12:30:00'),(2,'13:00:00'),(2,'13:30:00'),(2,'14:00:00'),(2,'14:30:00'),(2,'15:00:00'),(2,'15:30:00'),(2,'16:00:00'),(2,'16:30:00'),(2,'17:00:00'),(2,'17:30:00'),(2,'18:00:00'),(2,'18:30:00'),(3,'19:00:00'),(3,'19:30:00'),(3,'20:00:00'),(3,'20:30:00'),(3,'21:00:00');
+/*!40000 ALTER TABLE `horarios` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `maquinas`
+-- Table structure for table `maquinas`
 --
 
+DROP TABLE IF EXISTS `maquinas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `maquinas` (
-  `id` int(11) NOT NULL,
-  `maquina` varchar(50) DEFAULT NULL,
-  `idzona` int(11) DEFAULT NULL
+  `id` int NOT NULL,
+  `maquina` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  KEY `id` (`id`),
+  CONSTRAINT `maquinas_ibfk_1` FOREIGN KEY (`id`) REFERENCES `zona_entrenamiento` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `maquinas`
+-- Dumping data for table `maquinas`
 --
 
-INSERT INTO `maquinas` (`id`, `maquina`, `idzona`) VALUES
-(1, 'caminadora', 1),
-(2, 'escaladora', 1),
-(3, 'bicicletas', 1),
-(4, 'remadoras(Maquina de remo)', 1),
-(5, 'escaleras infinitas', 1),
-(6, 'rack funcional', 2),
-(7, 'bolsas salm', 2),
-(8, 'barras olimpicas', 2),
-(9, 'kettlebells', 2),
-(10, 'placas de parachoques', 2),
-(11, 'hack squat', 3),
-(12, 'empuje de cadera', 3),
-(13, 'jersey', 3),
-(14, 'pres de banca', 3),
-(15, 'prensa', 3),
-(16, 'remo de barra', 3);
-
--- --------------------------------------------------------
+LOCK TABLES `maquinas` WRITE;
+/*!40000 ALTER TABLE `maquinas` DISABLE KEYS */;
+INSERT INTO `maquinas` VALUES (1,'caminadora'),(1,'escaladora'),(1,'bicicletas'),(1,'remadoras(Maquina de remo)'),(1,'escaleras infinitas'),(2,'rack funcional'),(2,'bolsas salm'),(2,'barras olimpicas'),(2,'kettlebells'),(2,'placas de parachoques'),(3,'hack squat'),(3,'empuje de cadera'),(3,'jersey'),(3,'pres de banca'),(3,'prensa'),(3,'remo con barra');
+/*!40000 ALTER TABLE `maquinas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `reservas`
+-- Table structure for table `sedes`
 --
 
-CREATE TABLE `reservas` (
-  `id` int(11) NOT NULL,
-  `id_sede` int(11) NOT NULL,
-  `id_zona` int(11) NOT NULL,
-  `id_maq` int(11) NOT NULL,
-  `id_fecha` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sedes`
---
-
+DROP TABLE IF EXISTS `sedes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sedes` (
-  `id` int(50) NOT NULL,
-  `sede` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sede` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `sedes`
+-- Dumping data for table `sedes`
 --
 
-INSERT INTO `sedes` (`id`, `sede`) VALUES
-(1, 'Real Plaza Huancayo'),
-(2, 'Open Plaza Huancayo'),
-(3, 'La Fontana'),
-(4, 'Mall Aventura Santa Anita'),
-(5, 'Real Plaza Puruchuco'),
-(6, 'Alameda Plaza SJL');
-
--- --------------------------------------------------------
+LOCK TABLES `sedes` WRITE;
+/*!40000 ALTER TABLE `sedes` DISABLE KEYS */;
+INSERT INTO `sedes` VALUES (1,'Real Plaza Huancayo'),(2,'Open Plaza Huancayo'),(3,'La Fontana'),(4,'Mall Aventura Santa Anita'),(5,'Real Plaza Puruchuco'),(6,'Alameda Plaza SJL');
+/*!40000 ALTER TABLE `sedes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `seleccion`
+-- Table structure for table `seleccion`
 --
 
+DROP TABLE IF EXISTS `seleccion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seleccion` (
-  `id` int(11) NOT NULL,
-  `id_sedes` int(11) DEFAULT NULL,
-  `id_zona_entrenamiento` int(11) DEFAULT NULL,
-  `id_fecha` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_sedes` int DEFAULT NULL,
+  `id_zona_entrenamiento` int DEFAULT NULL,
+  `id_fecha` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_sedes` (`id_sedes`),
+  UNIQUE KEY `id_zona_entrenamiento` (`id_zona_entrenamiento`),
+  UNIQUE KEY `id_fecha` (`id_fecha`),
+  CONSTRAINT `seleccion_ibfk_6` FOREIGN KEY (`id_fecha`) REFERENCES `fechas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `seleccion`
+-- Dumping data for table `seleccion`
 --
 
-INSERT INTO `seleccion` (`id`, `id_sedes`, `id_zona_entrenamiento`, `id_fecha`) VALUES
-(1, 1, NULL, NULL);
-
--- --------------------------------------------------------
+LOCK TABLES `seleccion` WRITE;
+/*!40000 ALTER TABLE `seleccion` DISABLE KEYS */;
+INSERT INTO `seleccion` VALUES (1,1,NULL,NULL);
+/*!40000 ALTER TABLE `seleccion` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `turnos`
+-- Table structure for table `turnos`
 --
 
+DROP TABLE IF EXISTS `turnos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `turnos` (
-  `id` int(11) NOT NULL,
-  `turno` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `turno` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `turnos`
+-- Dumping data for table `turnos`
 --
 
-INSERT INTO `turnos` (`id`, `turno`) VALUES
-(1, 'mañana'),
-(2, 'tarde'),
-(3, 'noche');
-
--- --------------------------------------------------------
+LOCK TABLES `turnos` WRITE;
+/*!40000 ALTER TABLE `turnos` DISABLE KEYS */;
+INSERT INTO `turnos` VALUES (1,'mañana'),(2,'tarde'),(3,'noche');
+/*!40000 ALTER TABLE `turnos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `apellidos` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `contraseña` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombres`, `apellidos`, `email`, `contraseña`) VALUES
-(1, 'angelo', 'pizarro', 'angelo_enero@hotmail.com', '123'),
-(2, 'harold', 'pizarro', 'harold@gmail.com', '1');
-
--- --------------------------------------------------------
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'angelo','pizarro','angelo_enero@hotmail.com','123'),(2,'harold','pizarro','harold@gmail.com','1');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `zona_entrenamiento`
+-- Table structure for table `zona_entrenamiento`
 --
 
+DROP TABLE IF EXISTS `zona_entrenamiento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `zona_entrenamiento` (
-  `id` int(11) NOT NULL,
-  `entrenamiento` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `entrenamiento` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `zona_entrenamiento`
+-- Dumping data for table `zona_entrenamiento`
 --
 
-INSERT INTO `zona_entrenamiento` (`id`, `entrenamiento`) VALUES
-(1, 'cardio'),
-(2, 'funcional'),
-(3, 'fuerza');
+LOCK TABLES `zona_entrenamiento` WRITE;
+/*!40000 ALTER TABLE `zona_entrenamiento` DISABLE KEYS */;
+INSERT INTO `zona_entrenamiento` VALUES (1,'cardio'),(2,'funcional'),(3,'fuerza');
+/*!40000 ALTER TABLE `zona_entrenamiento` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `carrito`
---
-ALTER TABLE `carrito`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idsede` (`idsede`),
-  ADD KEY `idzona` (`idzona`),
-  ADD KEY `idmaquina` (`idmaquina`),
-  ADD KEY `idfecha` (`iddia`),
-  ADD KEY `idturno` (`idturno`),
-  ADD KEY `idhora` (`idhora`);
-
---
--- Indices de la tabla `fechas`
---
-ALTER TABLE `fechas`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `horarios`
---
-ALTER TABLE `horarios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idturno` (`idturno`);
-
---
--- Indices de la tabla `maquinas`
---
-ALTER TABLE `maquinas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idzona` (`idzona`);
-
---
--- Indices de la tabla `reservas`
---
-ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_zona` (`id_zona`),
-  ADD UNIQUE KEY `id_sede` (`id_sede`),
-  ADD UNIQUE KEY `id_maq` (`id_maq`),
-  ADD UNIQUE KEY `fecha` (`id_fecha`);
-
---
--- Indices de la tabla `sedes`
---
-ALTER TABLE `sedes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `seleccion`
---
-ALTER TABLE `seleccion`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_sedes` (`id_sedes`),
-  ADD UNIQUE KEY `id_zona_entrenamiento` (`id_zona_entrenamiento`),
-  ADD UNIQUE KEY `id_fecha` (`id_fecha`);
-
---
--- Indices de la tabla `turnos`
---
-ALTER TABLE `turnos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `zona_entrenamiento`
---
-ALTER TABLE `zona_entrenamiento`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `carrito`
---
-ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `fechas`
---
-ALTER TABLE `fechas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `horarios`
---
-ALTER TABLE `horarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT de la tabla `maquinas`
---
-ALTER TABLE `maquinas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT de la tabla `reservas`
---
-ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `sedes`
---
-ALTER TABLE `sedes`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `seleccion`
---
-ALTER TABLE `seleccion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `turnos`
---
-ALTER TABLE `turnos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `zona_entrenamiento`
---
-ALTER TABLE `zona_entrenamiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `carrito`
---
-ALTER TABLE `carrito`
-  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`id`),
-  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`idzona`) REFERENCES `zona_entrenamiento` (`id`),
-  ADD CONSTRAINT `carrito_ibfk_3` FOREIGN KEY (`idmaquina`) REFERENCES `maquinas` (`id`),
-  ADD CONSTRAINT `carrito_ibfk_4` FOREIGN KEY (`iddia`) REFERENCES `fechas` (`id`),
-  ADD CONSTRAINT `carrito_ibfk_5` FOREIGN KEY (`idturno`) REFERENCES `turnos` (`id`),
-  ADD CONSTRAINT `carrito_ibfk_6` FOREIGN KEY (`idhora`) REFERENCES `horarios` (`id`);
-
---
--- Filtros para la tabla `horarios`
---
-ALTER TABLE `horarios`
-  ADD CONSTRAINT `horarios_ibfk_1` FOREIGN KEY (`idturno`) REFERENCES `turnos` (`id`);
-
---
--- Filtros para la tabla `maquinas`
---
-ALTER TABLE `maquinas`
-  ADD CONSTRAINT `maquinas_ibfk_1` FOREIGN KEY (`idzona`) REFERENCES `zona_entrenamiento` (`id`) ON UPDATE CASCADE;
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-05-25 23:20:52
