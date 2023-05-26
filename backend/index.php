@@ -57,7 +57,7 @@ $row=$result->fetch_assoc();
                 <a class="nav-link" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/backend/login/login.php">RESERVAR</a>
+                <a class="nav-link" href="/backend/seleccion.php">RESERVAR</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link me-3" href="/backend/carrito.php">CARRITO</a>
@@ -70,7 +70,7 @@ $row=$result->fetch_assoc();
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Perfil</a></li>
                     <li><hr class="dropdown-divider"></hr></li>
-                    <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    <li><a class="dropdown-item" href="/backend/login/logout.php">Cerrar Sesión</a></li>
                   </ul>
                 </div>
               </li>
@@ -105,9 +105,9 @@ $row=$result->fetch_assoc();
     <ul>
         <li><a class="cardio" href="/backend/zona-cardio.php">Cardio</a></li>
         <li><a class="funcional" href="/backend/zona-funcional.php">Funcional</a></li>
-        <li><a class="pesolibre" href="">Peso libre</a></li>
+        <li><a class="pesolibre" href="/backend/zona-funcional.php">Peso libre</a></li>
         <li><a class="fuerza" href="/backend/zona-fuerza.php">Fuerza</a></li>
-        <li><a class="estiramiento" href="">Estiramiento</a></li>
+        <li><a class="estiramiento" href="/backend/zona-funcional.php">Estiramiento</a></li>
     </ul>
 </div>
 </div>

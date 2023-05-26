@@ -70,7 +70,7 @@ if($link){
             <a class="nav-link" href="/backend/zonasentrenamiento.php">ZONAS DE ENTRENAMIENTO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/backend/login/login.php">RESERVAR</a>
+            <a class="nav-link" href="#">RESERVAR</a>
           </li>
           <li class="nav-item">
             <a class="nav-link me-3" href="/backend/carrito.php">CARRITO</a>
@@ -86,7 +86,7 @@ if($link){
                   <hr class="dropdown-divider">
                   </hr>
                 </li>
-                <li><a class="dropdown-item" href="/backend/login/login.php">Cerrar Sesión</a></li>
+                <li><a class="dropdown-item" href="/backend/login/logout.php">Cerrar Sesión</a></li>
               </ul>
             </div>
           </li>
@@ -120,11 +120,13 @@ if($link){
         <h3>Reserva <span>por:</span></h3>
       </div>
       <div class="row">
+
+
         <!--SELECCION DE SEDES-->
         <div class="col-sm-6 col-lg-3">
           <div class="selectbox col">
             <select name="sede" class="select" id="select">
-              <option value="">Por sede</option>
+              <option value="">Elige tu sede</option>
               <?php foreach ($_SESSION['sede'] as $sede) { ?>
                 <option value="<?php echo $sede; ?>"><?php echo $sede; ?></option>
               <?php } ?>
@@ -135,7 +137,7 @@ if($link){
         <div class="col-sm-6 col-lg-3">
           <div class="selectboxzona col">
             <select name="zona" class="selectzona" id="selectzona">
-              <option value="">Por zona</option>
+              <option value="">Elige tu zona</option>
               <?php foreach ($_SESSION['zonas'] as $zonas) { ?>
                 <option value="<?php echo $zonas; ?>"><?php echo $zonas; ?></option>
               <?php } ?>
@@ -148,7 +150,7 @@ if($link){
         <div class="col-sm-6 col-lg-3">
           <div class="selectboxmaq col">
             <select name="maq" class="selectmaq" id="selectmaq">
-              <option value="">Por máquina</option>
+              <option value="">Elige tu máquina</option>
               <?php foreach ($_SESSION['maquinas'] as $maquina) { ?>
                 <option value="<?php echo $maquina; ?>"><?php echo $maquina; ?></option>
               <?php } ?>
@@ -159,7 +161,7 @@ if($link){
         <div class="col-sm-6 col-lg-3">
           <div class="selectboxdia col">
             <select name="dia" class="selectdia" id="selectdia">
-              <option value="">Por fecha</option>
+              <option value="">Elige tu fecha</option>
               <?php foreach ($_SESSION['fecha'] as $fecha) { ?>
                 <option value="<?php echo $fecha; ?>"><?php echo $fecha; ?></option>
               <?php } ?>
@@ -171,7 +173,7 @@ if($link){
         <div class="col-sm-6 col-lg-3">
           <div class="selectboxturnos col">
             <select name="turno" class="selectturnos" id="selectturnos">
-              <option value="">Por turno</option>
+              <option value="">Elige tu turno</option>
               <?php foreach ($_SESSION['turno'] as $turno) { ?>
                 <option value="<?php echo $turno; ?>"><?php echo $turno; ?></option>
               <?php } ?>
@@ -186,7 +188,7 @@ if($link){
         <div class="col-sm-6 col-lg-3">
           <div class="selectboxhora col">
             <select name="hora" class="selecthora" id="selecthora">
-              <option value="">Por horario</option>
+              <option value="">Elige tu horario</option>
               <?php foreach ($_SESSION['horarios'] as $horarios) { ?>
                 <option value="<?php echo $horarios; ?>"><?php echo $horarios; ?></option>
               <?php } ?>
@@ -205,7 +207,6 @@ if($link){
 
 
 
-<<<<<<< HEAD
     <div class="row mt-4">
       <div class="col-lg-6">
         <img class="w-100 mb-3" src="imagenes/imgreserva/primera-1.png" alt="" srcset="">
@@ -233,110 +234,10 @@ if($link){
 
 
   </section>
-=======
-
-    <section class="seccion container-md">
-    <form action="../backend/controllers/guardarCarrito.php" method="POST">
-
-<div class="row pt-3 pb-3">
-  <h3>Reserva <span>por:</span></h3>
-</div>
-<div class="row">
-   <!--SELECCION DE SEDES-->
-  <div class="col-sm-6 col-lg-3">
-    <div class="selectbox col">
-      <select name="sede" class="select" id="select">
-        <option value="">Por sede</option>
-        <?php foreach ($_SESSION['sede'] as $sede) { ?>
-          <option value="<?php echo $sede; ?>"><?php echo $sede; ?></option>
-        <?php } ?>
-      </select>
-    </div>
-  </div>
-   <!--SELECCION DE ZONAS-->
-  <div class="col-sm-6 col-lg-3">
-    <div class="selectboxzona col">
-      <select name="zona" class="selectzona" id="selectzona">
-        <option value="">Por zona</option>
-        <?php foreach ($_SESSION['zonas'] as $zonas) { ?>
-          <option value="<?php echo $zonas; ?>"><?php echo $zonas; ?></option>
-        <?php } ?>
-
-       
-      </select>
-    </div>
-  </div>
-   <!--SELECCION DE MAQUINAS-->
-  <div class="col-sm-6 col-lg-3">
-    <div class="selectboxmaq col">
-      <select name="maq" class="selectmaq" id="selectmaq">
-        <option value="">Por máquina</option>
-        <?php foreach ($_SESSION['maquinas'] as $maquina) { ?>
-          <option value="<?php echo $maquina; ?>"><?php echo $maquina; ?></option>
-        <?php } ?>
-      </select>
-    </div>
-  </div>
-   <!--SELECCION DE FECHAS-->
-  <div class="col-sm-6 col-lg-3">
-    <div class="selectboxdia col">
-      <select name="dia" class="selectdia" id="selectdia">
-        <option value="">Por fecha</option>
-        <?php foreach ($_SESSION['fecha'] as $fecha) { ?>
-          <option value="<?php echo $fecha; ?>"><?php echo $fecha; ?></option>
-        <?php } ?>
-      </select>
-    </div>
-  </div>
-
-   <!--SELECCION DE TURNOS-->
-  <div class="col-sm-6 col-lg-3">
-        <div class="selectboxturnos col">
-          <select name="turnos" class="selectturnos" id="selectturnos">
-            <option value="">Por turno</option>
-            <?php foreach ($_SESSION['turno'] as $turno) { ?>
-              <option value="<?php echo $turno; ?>"><?php echo $turno; ?></option>
-            <?php } ?>
-          </select>
-        </div>
-      </div>
-
- 
-             <!--SELECCION DE HORARIOS-->
-                    
-  
-             <div class="col-sm-6 col-lg-3">
-        <div class="selectboxhora col">
-          <select name="hora" class="selecthora" id="selecthora">
-            <option value="">Por horario</option>
-            <?php foreach ($_SESSION['horarios'] as $horarios) { ?>
-              <option value="<?php echo $horarios; ?>"><?php echo $horarios; ?></option>
-            <?php } ?>
-          </select>
-        </div>
-      </div>
-
-  
-          <div class="col-sm-12 col-lg-3">
-            <div class="filtro">
-            <input type="submit" class="btn botonfil pt-4 pb-4" name="guardar_carrito" value="Guardar Carrito"><i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-          </div>
-        </div>
-        </form>
-      
->>>>>>> 85c6d681aac5cfca41bb126c42c31e4a6c58ae5d
 
 
 
-<<<<<<< HEAD
   <script src="/backend/JS/seleccion.js"></script>
-=======
-       
-      
-    </section>
-    
->>>>>>> 85c6d681aac5cfca41bb126c42c31e4a6c58ae5d
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

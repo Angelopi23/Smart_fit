@@ -61,12 +61,18 @@
 
         <div class="img-contenedor">
 
-            <a class="item"><img src="/imagenes/imgsedes/openplazahuancayo.png" alt=""> </a>
-            <a class="item"><img src="/imagenes/imgsedes/realplazahuancayo.png" alt=""> </a>
-            <a class="item"><img src="/imagenes/imgsedes/fontana.png" alt=""> </a>
-            <a class="item"><img src="/imagenes/imgsedes/mallSantaAnita.png" alt=""> </a>
-            <a class="item"><img src="/imagenes/imgsedes/RealPlazaPuruchuco.png" alt=""> </a>
-            <a class="item"><img src="/imagenes/imgsedes/AlamedaPlazaSJL.png" alt=""> </a>
+            <a class="item" onclick="redirigir('realplazahuancayo')"> <img src="/imagenes/imgsedes/realplazahuancayo.png" alt=""></a>
+        <input type="hidden" name="sedes" value="realplazahuancayo"> 
+        <a class="item" onclick="redirigir('openplazahuancayo')"><img src="/imagenes/imgsedes/openplazahuancayo.png" alt=""></a>
+        <input type="hidden" name="sedes" value="openplazahuancayo">
+        <a class="item" onclick="redirigir('fontana')" > <img src="/imagenes/imgsedes/fontana.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="fontana">
+        <a class="item" onclick="redirigir('mallSantaAnita')" > <img src="/imagenes/imgsedes/mallSantaAnita.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="mallSantaAnita">
+        <a class="item" onclick="redirigir('RealPlazaPuruchuco')" > <img src="/imagenes/imgsedes/RealPlazaPuruchuco.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="RealPlazaPuruchuco">
+        <a class="item" onclick="redirigir('AlamedaPlazaSJL')" > <img src="/imagenes/imgsedes/AlamedaPlazaSJL.png" alt=""> </a>
+        <input type="hidden" name="sedes" value="AlamedaPlazaSJL">
         </div>
 
 
@@ -84,7 +90,12 @@
 
     </footer>
 
-
+    <script>
+        function redirigir(sede) {
+          // Cambiar la ubicación de la ventana del navegador a zonasentrenamiento.php con el parámetro 'sede'
+          window.location.href = '/backend/zonasentrenamiento.php?sede=' + sede;
+        }
+        </script>
 
 </body>
 
