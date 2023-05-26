@@ -51,29 +51,36 @@
         <div class="palabra">
             <h2><a>Buscar</a> por:</h2> 
             </div>
-          <div class="buscar-contenedor">
+
+            <div class="wrapper">
+              <div id="search-container">
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder=" Ingresa tu maquina de fuerza"
+                />
+                <button id="search" class="btn"> <img src="imagenes/imgsedes/lupa.png" alt=""></button>
+              </div>
+            <div id="buttons">
+              <button class="button-value" onclick="filterProduct('TODAS LAS MAQUINAS')">TODAS LAS MAQUINAS</button>
             
-          <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu maquina de fuerza">
-         
-          <button id="btn" class="btn"><img src="/imagenes/imgsedes/lupa.png" alt=""></button>
-        </div>
-
-        <div class="img-contenedor">
-            <div class="item"><h2 class="uno">HACK SQUAT</h2><br> <img src="imagenes/zonas-fuerza/HACK__SQUAT.png" alt=""></div>
-            <div class="item"><h2>EMPUJE DE CADERA</h2><img src="imagenes/zonas-fuerza/EMPUJE_DE_CADEA.png" alt=""></div>
-            <div class="item"><h2>JERSEY</h2><img src="imagenes/zonas-fuerza/JERSEY.png" alt=""></div>
-            <div class="item"><h2>PRES DE BANCA</h2><img src="imagenes/zonas-fuerza/PRES_DE_BANCA.png" alt=""></div>
-            <div class="item"><h2>PRENSA</h2><img src="imagenes/zonas-fuerza/PRENSA.png" alt=""></div>
-            <div class="item"><h2>REMO CON BARRA</h2><img src="imagenes/zonas-fuerza/REMO_CON_BARRA.png" alt=""></div>
-          </div>
-
-
-        <footer class="ultimo">
-
-            <h2><a> ¡Saca tu </a> mejor forma!</h2>
-        
-        </footer>
-        
-
-</body>
-</html>
+            </div>
+            
+            
+            <div id="products"></div>
+            </div>
+            
+            
+            
+            
+            
+            <footer class="ultimo">
+            
+                <h2><a> ¡Saca tu </a> mejor forma!</h2>
+            
+            </footer>
+            
+            <script src="JS/fuerza.js"></script>
+            
+            </body>
+            </html>

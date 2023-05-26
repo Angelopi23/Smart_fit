@@ -55,32 +55,36 @@
         <div class="palabra">
             <h2><a>Buscar</a> por:</h2> 
             </div>
-          <div class="buscar-contenedor">
+
+            <div class="wrapper">
+              <div id="search-container">
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder=" Ingresa tu maquina funcional"
+                />
+                <button id="search" class="btn"> <img src="imagenes/imgsedes/lupa.png" alt=""></button>
+              </div>
+            <div id="buttons">
+              <button class="button-value" onclick="filterProduct('TODAS LAS MAQUINAS')">TODAS LAS MAQUINAS</button>
             
-          <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu maquina funcional">
-         
-          <button id="btn" class="btn"><img src="/imagenes/imgsedes/lupa.png" alt=""></button>
-          </div>
-
-
-          <div class="img-contenedor">
-            <div class="item"><h2 class="uno">RACK FUNCIONAL</h2><br> <img src="imagenes/zonas-funcional/RACK_FUNCIONAL(2).jpg" alt=""></div>
-            <div class="item"><h2>BOLSAS DE SALM</h2><img src="imagenes/zonas-funcional/bolsas_de_salm.png" alt=""></div>
-            <div class="item"><h2>BARRAS OLIMPICAS</h2><img src="imagenes/zonas-funcional/barra_olimpica.png" alt=""></div>
-            <div class="item"><h2>KETTLEBELLS</h2><img src="imagenes/zonas-funcional/kettlebells.png" alt=""></div>
+            </div>
             
-          </div>
-
-          <div class="img-contenedor2">
-          <div class="item5"><h2>PLACAS DE PARACHOQUES</h2><img src="imagenes/zonas-funcional/placa_de_parachoque.png" alt=""></div>
-          </div>
-          
-
-          <footer class="ultimo">
-
-            <h2><a> ¡Saca tu </a> mejor forma!</h2>
-        
-        </footer>
-
-</body>
-</html>
+            
+            <div id="products"></div>
+            </div>
+            
+            
+            
+            
+            
+            <footer class="ultimo">
+            
+                <h2><a> ¡Saca tu </a> mejor forma!</h2>
+            
+            </footer>
+            
+            <script src="JS/funcional.js"></script>
+            
+            </body>
+            </html>

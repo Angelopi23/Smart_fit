@@ -60,8 +60,9 @@
 
  <div class="palabra">
    <h2><a>Buscar</a> por:</h2> 
-   </div>
- <div class="buscar-contenedor">
+  </div>
+ 
+ <!--<div class="buscar-contenedor">
    
  <input type="search" class="buscador1" id="buscador" placeholder="Ingresa tu maquina de cardio">
 
@@ -80,13 +81,37 @@
    </div>
 <div class="img-contenedor2">
 <div class="item5"><h2>ESCALERAS INFINITAS</h2><img src="/imagenes/zonas-cardio/escalera.png" alt=""></div>
+</div> -->
+
+<div class="wrapper">
+  <div id="search-container">
+    <input
+      type="search"
+      id="search-input"
+      placeholder=" Ingresa tu maquina de cardio"
+    />
+    <button id="search" class="btn"> <img src="imagenes/imgsedes/lupa.png" alt=""></button>
+  </div>
+<div id="buttons">
+  <button class="button-value" onclick="filterProduct('TODAS LAS MAQUINAS')">TODAS LAS MAQUINAS</button>
+
 </div>
+
+
+<div id="products"></div>
+</div>
+
+
+
+
 
 <footer class="ultimo">
 
     <h2><a> ¡Saca tu </a> mejor forma!</h2>
 
 </footer>
+
+<script src="JS/cardio.js"></script>
 
 </body>
 </html>
