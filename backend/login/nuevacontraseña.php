@@ -1,3 +1,24 @@
+<?php
+	
+    require dirname(__DIR__).'/login/conexion.php';
+	require dirname(__DIR__).'/login/funcs.php';
+	
+	if(empty($_GET['user_id'])){
+		header("Location:/backend/login/login.php");
+	}
+
+	if(empty($_GET['token'])){
+		header("Location:/backend/login/login.php");
+	}
+	
+	$user_id = $_GET['user_id'];
+	$token = $_GET['token'];
+	
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +35,7 @@
    
 <section class="left-formulario">
     
-<form action="" method="post">
+<form action="/backend/login/guarda_pass.php" method="post">
 
         <div class="logo" >
         <a  class="smart">SMART </a>
@@ -26,11 +47,14 @@
      <p>¡Bienvenido de nuevo!</p>
      <p>Por favor introduce tus datos para ingresar</p>
 
+     <input type="hidden" id="user_id" name="user_id" value ="<?php echo $user_id; ?>" />
+							
+	<input type="hidden" id="token" name="token" value ="<?php echo $token; ?>" />
 
      <label for="password">NUEVA CONTRASEÑA</label>
-     <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su nueva contraseña" required=""> <br>
+     <input class="form" type="password" name="password" id="password" placeholder="Ingrese su nueva contraseña" required=""> <br>
      <label for="password">CONFIRMAR CONTRASEÑA</label>
-     <input class="form" type="password" name="contraseña" id="contraseña" placeholder="Confirme su contraseña" required=""> <br>
+     <input class="form" type="password" name="con_password" id="con_password" placeholder="Confirme su contraseña" required=""> <br>
 
       <div class="botones">
      <input class="boton1" type="submit" value="Confirmar">
