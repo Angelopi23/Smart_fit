@@ -11,19 +11,11 @@ $idUser = $_SESSION['email'];
 $nombre = $_SESSION['nombres'];
 $apellido = $_SESSION['apellidos'];
 
-<<<<<<< HEAD
 $mostrar = "SELECT*FROM usuario
  WHERE email = '$idUser' ";
 $result = $conexion->query($mostrar);
 
 $row = $result->fetch_assoc();
-=======
-$mostrar="SELECT*FROM usuario
- WHERE email = '$idUser' " ;
-$result=$conexion->query($mostrar);
-
-$row=$result->fetch_assoc();
->>>>>>> 85c6d681aac5cfca41bb126c42c31e4a6c58ae5d
 /*
 $querySede = "SELECT id, sede FROM sedes ORDER BY sede ASC";
 $resultSede = $conexion->query($querySede);

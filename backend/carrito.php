@@ -36,10 +36,6 @@ if($resultado){
 
 // $row = $result->fetch_assoc();
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 85c6d681aac5cfca41bb126c42c31e4a6c58ae5d
 /*
 if (isset($_POST['sedes'])) {
   $sedeSeleccionada = $_POST['sedes'];
